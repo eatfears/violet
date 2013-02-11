@@ -38,7 +38,7 @@ void Statistics::PrintStat(void)
 
 	RenderString(50, engine.height - 50, font, cFPS);
 
-	Character &player = engine.wWorld.player;
+	/*Character &player = engine.wWorld.player;
 	b_sprintf(pos, "X: %0.10f\n", player.dPositionX/BLOCK_SIZE);
 	RenderString(50, engine.height - 70, font, pos);
 	b_sprintf(pos, "Y: %0.10f\n", player.dPositionY/BLOCK_SIZE);
@@ -60,6 +60,7 @@ void Statistics::PrintStat(void)
 	s = ((int)(engine.wWorld.player.LocalTimeOfDay*36.0))%60;
 	b_sprintf(pos, "Local time: %d:%.2d:%.2d\n", h, m, s);
 	RenderString(50, engine.height - 170, font, pos);
+	*/
 }
 
 void Statistics::RenderString(int x, int y, void *font, const char string[])

@@ -1,9 +1,7 @@
 #pragma once
-#include "Blocks_Definitions.h"
+#include "Definitions.h"
 #include <GL/freeglut.h>
 
-#include "World.h"
-#include "Character.h"
 #include "Statistics.h"
 
 class Engine
@@ -31,22 +29,9 @@ private:
 
 	void DrawTile(BlockInWorld sXcoord, BlockInWorld sYcoord, BlockInWorld sZcoord, int material, char side);
 	void DrawInterface();
-	void DrawSelectedItem();
-
-	void DrawBottomBorder();
-	void DrawPlanet();
-	void DrawSunMoon();
-	void DrawClouds();
 
 	void OpenGL2d();
 	void OpenGL3d();
-
-	World wWorld;
-
-	double TimeOfDay; 
-	double TimeOfWinal;
-	void GetFogColor();
-	GLfloat FogColor[4];
 
 	void GetFrameTime();
 	double FrameInterval;

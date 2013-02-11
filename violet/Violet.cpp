@@ -1,4 +1,4 @@
-#include "Blocks_Definitions.h"
+#include "Definitions.h"
 #include <GL/freeglut.h>
 #include "Engine.h"
 
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);
 	glutInitWindowSize(RESX, RESY);
 	glutInitWindowPosition(0, 0);
-	glutCreateWindow("Blocks");
+	glutCreateWindow("Violet");
 
 	/*
 	glutGameModeString("1280x1024:32");
