@@ -29,6 +29,12 @@
     <ClCompile Include="Violet.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Interface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="comport.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -47,6 +53,12 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Definitions.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="comport.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

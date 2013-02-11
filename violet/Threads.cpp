@@ -3,7 +3,7 @@
 
 #include "Definitions.h"
 
-void LoadChunkThread(void* pParams)
+void ReadComThread(void* param)
 {
 //	Param pParameters = *(Param*)pParams;
 //	ChunkInWorld x = pParameters.x;

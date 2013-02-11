@@ -2,6 +2,7 @@
 #include "Definitions.h"
 #include <GL/freeglut.h>
 
+#include "Interface.h"
 #include "Statistics.h"
 
 class Engine
@@ -27,7 +28,6 @@ private:
 	bool	fullscreen;
 	bool	bMousing;
 
-	void DrawTile(BlockInWorld sXcoord, BlockInWorld sYcoord, BlockInWorld sZcoord, int material, char side);
 	void DrawInterface();
 
 	void OpenGL2d();
@@ -36,5 +36,6 @@ private:
 	void GetFrameTime();
 	double FrameInterval;
 	friend class Statistics;
+	Interface inter;
 	Statistics stat;
 };

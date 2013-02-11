@@ -25,7 +25,7 @@ void Statistics::ComputeFPS( double FrameInterval )
 void Statistics::PrintStat(void)
 {
 	static char cFPS[20] = "";
-	static char pos[40] = "";
+	static char pos[1024] = "";
 	static void *font = GLUT_BITMAP_HELVETICA_12;
 	static int h, m, s;
 
@@ -38,29 +38,31 @@ void Statistics::PrintStat(void)
 
 	RenderString(50, engine.height - 50, font, cFPS);
 
-	/*Character &player = engine.wWorld.player;
-	b_sprintf(pos, "X: %0.10f\n", player.dPositionX/BLOCK_SIZE);
+	b_sprintf(pos, "Pitch: %f\n", engine.inter.pitch);
 	RenderString(50, engine.height - 70, font, pos);
-	b_sprintf(pos, "Y: %0.10f\n", player.dPositionY/BLOCK_SIZE);
+	b_sprintf(pos, "Roll: %f\n", engine.inter.roll);
 	RenderString(50, engine.height - 90, font, pos);
-	b_sprintf(pos, "Z: %0.10f\n", player.dPositionZ/BLOCK_SIZE);
+	b_sprintf(pos, "Yaw: %f\n", engine.inter.yaw);
 	RenderString(50, engine.height - 110, font, pos);
-
-	b_sprintf(pos, "Rendered: %d\n", reRenderedChunks);
+	b_sprintf(pos, "Magnet heading: %f\n", engine.inter.mhead);
 	RenderString(50, engine.height - 130, font, pos);
 
-	h = ((int)engine.TimeOfDay)/100;
-	m = ((int)(engine.TimeOfDay*0.6))%60;
-	s = ((int)(engine.TimeOfDay*36.0))%60;
-	b_sprintf(pos, "Time: %d:%.2d:%.2d\n", h, m, s);
-	RenderString(50, engine.height - 150, font, pos);
 
-	h = ((int)engine.wWorld.player.LocalTimeOfDay)/100;
-	m = ((int)(engine.wWorld.player.LocalTimeOfDay*0.6))%60;
-	s = ((int)(engine.wWorld.player.LocalTimeOfDay*36.0))%60;
-	b_sprintf(pos, "Local time: %d:%.2d:%.2d\n", h, m, s);
-	RenderString(50, engine.height - 170, font, pos);
-	*/
+	b_sprintf(pos, "Analog readings:\n%f, %f, %f, %f\t%f\n%f, %f, %f\n", engine.inter.AN[0], engine.inter.AN[1], engine.inter.AN[2], engine.inter.AN[3], engine.inter.AN[4], engine.inter.AN[5], engine.inter.AN[6], engine.inter.AN[7]);
+	RenderString(250, engine.height - 50, font, pos);
+	b_sprintf(pos, "Analog readings:\n%f, %f, %f, %f\t%f\n%f, %f, %f\n", engine.inter.AN_OFFSET[0], engine.inter.AN_OFFSET[1], engine.inter.AN_OFFSET[2], engine.inter.AN_OFFSET[3], engine.inter.AN_OFFSET[4], engine.inter.AN_OFFSET[5], engine.inter.AN_OFFSET[6], engine.inter.AN_OFFSET[7]);
+	RenderString(250, engine.height - 100, font, pos);
+	b_sprintf(pos, "Dt: %f\n", engine.inter.G_Dt);
+	RenderString(250, engine.height - 150, font, pos);
+
+
+	b_sprintf(pos, "Accel vector: %f, %f, %f\n", engine.inter.Accel_vector[0], engine.inter.Accel_vector[1], engine.inter.Accel_vector[2]);
+	RenderString(250, engine.height - 170, font, pos);
+
+	//com->read(&DCM_Matrix[0], 4*3);
+	//com->read(&DCM_Matrix[1], 4*3);
+	//com->read(&DCM_Matrix[2], 4*3);
+
 }
 
 void Statistics::RenderString(int x, int y, void *font, const char string[])

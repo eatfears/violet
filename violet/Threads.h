@@ -1,5 +1,3 @@
 #pragma once
 
-void LoadNGenerate (void*);
-void LoadChunkThread(void* pParams);
-void UnLoadChunkThread(void* pParams);
+void ReadComThread (void* param);

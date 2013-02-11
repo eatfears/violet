@@ -265,6 +265,7 @@ void Engine::Loop()
 	Display();
 
 	//player.Control(FrameInterval);
+	inter.read();
 	DrawInterface();
 
 	GetFrameTime();
@@ -276,7 +277,7 @@ void Engine::Loop()
 void Engine::GetFrameTime()
 {
 	static double koef = 0.0005;
-	static double max_FPS = 30;
+	static double max_FPS = 200;
 	static int sleep_time;
 
 	double currentTime = GetMillisecTime();
@@ -338,7 +339,7 @@ void Engine::OpenGL3d()
 	glViewport(0, 0, width, height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(fovy, (GLfloat)width/(GLfloat)height, 0.2f, FARCUT);
+	gluPerspective(fovy, (GLfloat)width/(GLfloat)height, 0.2f, 100);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glEnable(GL_DEPTH_TEST);
