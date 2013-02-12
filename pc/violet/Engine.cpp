@@ -126,7 +126,11 @@ void Engine::Keyboard(unsigned char button, int x, int y, bool KeyDown)
 	case KEY_ESCAPE: glutExit();
 		break;
 
-	case ' ': inter.Connect();
+	case ' ':
+		if(KeyDown) {
+			if(inter.connected) inter.Disconnect();
+			else inter.Connect();
+		}
 		break;
 
 	default:

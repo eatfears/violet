@@ -1,8 +1,10 @@
 #include "Interface.h"
 
+#include <stdexcept>
 
 Interface::Interface(void)
 {
+	connected = false;
 	quadroPitch = quadroRoll = quadroYaw = quadroMagHead = quadroDeltaTime = 0;
 	for(int i = 0; i < 8; i++) {
 		quadroAnalogReads[i] = quadroAnalogOffsets[i] = 0;
@@ -15,7 +17,6 @@ Interface::Interface(void)
 	}
 }
 
-
 Interface::~Interface(void)
 {
 }
@@ -24,17 +25,26 @@ void _StartReading(Interface *ifc, COMPort *_comPort);
 
 void Interface::Connect()
 {
-	_comPort = new COMPort("Com13");
-	_comPort->setBitRate(COMPort::br115200);
-	connected = true;
+	if(!connected) {
+		try{
+			_comPort = new COMPort("Com2");
+			_comPort->setBitRate(COMPort::br115200);
+			connected = true;
+		}
+		catch (const std::runtime_error &e) {
+			std::cout << e.what();
+		}
+	}
 
-	_commThread = boost::thread (_StartReading, this, _comPort);
+	//_commThread = boost::thread (_StartReading, this, _comPort);
 }
 
 void Interface::Disconnect()
 {
-	delete _comPort;
-	connected = false;
+	if(connected) {
+		delete _comPort;
+		connected = false;
+	}
 }
 
 void _StartReading(Interface *ifc, COMPort *_comPort)
