@@ -128,8 +128,13 @@ void Engine::Keyboard(unsigned char button, int x, int y, bool KeyDown)
 
 	case ' ':
 		if(KeyDown) {
-			if(inter.connected) inter.Disconnect();
-			else inter.Connect();
+			if(inter.connected) {
+				inter.Disconnect();
+				std::cout << "Disconnected" << std::endl;
+			} else {
+				inter.Connect();
+				std::cout << "Connected" << std::endl;
+			}
 		}
 		break;
 
