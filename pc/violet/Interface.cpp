@@ -32,11 +32,11 @@ void Interface::Connect()
 			_comPort->setBitRate(COMPort::br115200);
 			_comPort->setBlockingMode(_timeout, _timeout);
 			connected = true;
+			_commThread = boost::thread (_StartReading, this, _comPort);
 		}
 		catch (const std::runtime_error &e) {
 			std::cout << e.what() << std::endl;
 		}
-		_commThread = boost::thread (_StartReading, this, _comPort);
 	}
 }
 
@@ -50,10 +50,8 @@ void Interface::Disconnect()
 
 void _StartReading(Interface *ifc, COMPort *_comPort)
 {
-	
 	try{
 		while(1) {
-
 			while(1) {
 				if(_comPort->read() == 'h')
 					if(_comPort->read() == 'e')

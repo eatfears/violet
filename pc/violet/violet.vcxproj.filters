@@ -14,9 +14,6 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Threads.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Statistics.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -38,9 +35,6 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Threads.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Statistics.h">

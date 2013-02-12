@@ -185,7 +185,6 @@
     <ClInclude Include="PlatformDefinitions.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Statistics.h" />
-    <ClInclude Include="Threads.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="comport.cpp" />
@@ -194,7 +193,6 @@
     <ClCompile Include="Violet.cpp" />
     <ClCompile Include="PlatformDefinitions.cpp" />
     <ClCompile Include="Statistics.cpp" />
-    <ClCompile Include="Threads.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="violet.rc" />

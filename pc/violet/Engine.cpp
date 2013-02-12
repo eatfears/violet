@@ -13,6 +13,7 @@ Engine::Engine()
 {
 	bMousing = false;
 	fullscreen = false;
+	warp = false;
 
 	width = 0;
 	height = 0;
@@ -30,7 +31,6 @@ int Engine::InitGL()
 
 //	wWorld.player.dPositionY = 100*BLOCK_SIZE+00.0;
 //	wWorld.player.dSpinY = -90 - 45;
-	glutSetCursor(GLUT_CURSOR_NONE);							//Выставляем на НЕТ КУРСОР
 
 
 	glShadeModel(GL_SMOOTH);
@@ -126,7 +126,7 @@ void Engine::Keyboard(unsigned char button, int x, int y, bool KeyDown)
 	case KEY_ESCAPE: glutExit();
 		break;
 
-	case ' ':
+	case 'S':
 		if(KeyDown) {
 			if(inter.connected) {
 				inter.Disconnect();
@@ -135,6 +135,14 @@ void Engine::Keyboard(unsigned char button, int x, int y, bool KeyDown)
 				inter.Connect();
 				std::cout << "Connected" << std::endl;
 			}
+		}
+		break;	
+	
+	case ' ':
+		if(KeyDown) {
+			warp = !warp;
+			if(warp) glutSetCursor(GLUT_CURSOR_NONE);
+			else glutSetCursor(GLUT_CURSOR_INHERIT);
 		}
 		break;
 
@@ -148,21 +156,9 @@ void Engine::MouseMotion(int x, int y)
 {
 	if(bMousing) {
 		bMousing = false;
-/*		Character &player = wWorld.player;
 
-		player.dSpinY -= (x - width/2)/MOUSE_SENSIVITY;
-		player.dSpinX -= (y - height/2)/MOUSE_SENSIVITY;
-
-		while(player.dSpinY >= 360.0)
-			player.dSpinY -= 360.0;
-
-		while(player.dSpinY < 0.0)
-			player.dSpinY += 360.0;
-
-		if(player.dSpinX < -90.0) player.dSpinX = -90.0;
-		if(player.dSpinX > 90.0) player.dSpinX = 90.0;
-*/
-		//glutWarpPointer(width/2, height/2);
+		if(warp)
+			glutWarpPointer(width/2, height/2);
 	} else {
 		bMousing = true;
 	}

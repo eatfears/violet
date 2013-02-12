@@ -25,6 +25,7 @@ public:
 private:
 	int width, height;
 
+	bool	warp;
 	bool	fullscreen;
 	bool	bMousing;
 
