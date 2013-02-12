@@ -199,9 +199,6 @@
   <ItemGroup>
     <ResourceCompile Include="violet.rc" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="textures\texture.png" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

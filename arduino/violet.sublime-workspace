@@ -1,0 +1,710 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"for",
+				"fore	for (each)"
+			],
+			[
+				"def",
+				"def	define(…, …)"
+			],
+			[
+				"ip",
+				"ips"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"ba",
+				"base64_decode"
+			],
+			[
+				"base64_",
+				"base64_encode"
+			],
+			[
+				"au",
+				"autoPilot"
+			],
+			[
+				"f",
+				"f	Anonymous Function"
+			],
+			[
+				"glo",
+				"global"
+			],
+			[
+				"ta",
+				"tables"
+			],
+			[
+				"mo",
+				"module"
+			],
+			[
+				"unse",
+				"unset"
+			],
+			[
+				"pre",
+				"preg_quote"
+			],
+			[
+				"tr",
+				"try	Wrap in try { … } catch (…) { … }"
+			],
+			[
+				"pos",
+				"post_text"
+			],
+			[
+				"pre_ma",
+				"preg_match"
+			],
+			[
+				"file",
+				"file_id"
+			],
+			[
+				"modul",
+				"module_id"
+			],
+			[
+				"ser",
+				"server"
+			],
+			[
+				"G",
+				"_GET"
+			],
+			[
+				"preg",
+				"preg_replace"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"IN",
+				"INTO"
+			],
+			[
+				"server",
+				"server_id"
+			],
+			[
+				"array_m",
+				"array_merge"
+			],
+			[
+				"gl",
+				"glob_names"
+			],
+			[
+				"activ",
+				"active_module"
+			],
+			[
+				"js",
+				"json_decode"
+			],
+			[
+				"prit",
+				"print_r"
+			],
+			[
+				"a",
+				"array	$… = array (…)"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"p",
+				"puts"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"ma",
+				"Math"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"sw",
+				"switch	switch …"
+			],
+			[
+				"entr",
+				"entries"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"tra",
+				"transparent"
+			],
+			[
+				"the",
+				"theme_posts"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"loa",
+				"loadingBarStr"
+			],
+			[
+				"ac",
+				"activity"
+			],
+			[
+				"post",
+				"posts_in_topic"
+			],
+			[
+				"array_pu",
+				"array_push"
+			],
+			[
+				"fo",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"key",
+				"keyword"
+			],
+			[
+				"curr",
+				"currentSourceId"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"ret",
+				"ret_json"
+			],
+			[
+				"them",
+				"theme_name"
+			],
+			[
+				"ke",
+				"keywords"
+			],
+			[
+				"arra",
+				"array"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"user",
+				"users"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"fil",
+				"filename"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "RADIO.ino",
+			"settings":
+			{
+				"buffer_size": 3122,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/sql.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/server/config.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/server/kernel.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16 CVE-2013-0422.php",
+		"/C/Documents and Settings/isivakov/Мои документы/Dropbox/ah_VIOLET/DCM.ino",
+		"/C/Documents and Settings/isivakov/Мои документы/Dropbox/ah_VIOLET/ADC.ino",
+		"/C/Documents and Settings/isivakov/Мои документы/Dropbox/ah_VIOLET/ah_VIOLET.ino",
+		"/C/Documents and Settings/isivakov/Мои документы/Dropbox/ah_VIOLET/Vector.ino",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/difbsyke/dknizaae.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/difbsyke/fytisfsf.java",
+		"/C/Documents and Settings/isivakov/Рабочий стол/1.py",
+		"/C/Documents and Settings/isivakov/Рабочий стол/1.cpp",
+		"/C/metasploit/apps/pro/msf3/modules/exploits/windows/browser/safari_xslt_output.rb",
+		"/C/Documents and Settings/isivakov/Рабочий стол/пр/Наездник/server/шелл/17 CVE-2011-1774/1.txt",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/index.htm",
+		"/C/Documents and Settings/isivakov/Рабочий стол/пр/Наездник/server/шелл/17 CVE-2011-1774/Текстовый документ.txt",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/difbsyke/asdntzht.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/difbsyke/fsknsfka.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/index.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/16.bat",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/1/dknizaae.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/1/asdntzht.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/16/1/fytisfsf.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/img.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/17 CVE-2012-5088.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/14 CVE-2012-4792.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/11 CVE-2011-3658.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/gen16.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/payloads/CreateFile1.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/server/dm.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/12 CVE-2012-5076.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/index.htm",
+		"/C/Documents and Settings/isivakov/Рабочий стол/пр/Наездник/startpayload/CVE-2012-1889.W7.Ie8.J6.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/stuff.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/server_interface.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/conf_stuff.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/.gitignore",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/module_backup/06 CVE-2012-1889.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/4792.php",
+		"/C/Documents and Settings/isivakov/Local Settings/Temp/i8798b_java12.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/CVE-2012-4792.SHELL.W7.Ie8.J6.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/gen16.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/gen17.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/payloads/DownloadFile.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/payloads/SearchExec.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/16 CVE-2013-0422.php",
+		"/C/Documents and Settings/isivakov/Local Settings/Temp/R6598b_java12.php",
+		"/C/Documents and Settings/isivakov/Рабочий стол/diff/2/class0.java",
+		"/C/Documents and Settings/isivakov/Рабочий стол/diff/1/class0.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/ekabofo/qebyryk.txt",
+		"/C/Documents and Settings/isivakov/Мои документы/Dropbox/2do.txt",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java_compiler.php",
+		"/C/DOCUME~1/isivakov/LOCALS~1/Temp/Rar$DR00.703/refltr-0.1/refltr.rb",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/5088/index.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/5883/index.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/payloads/Message.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/var_dump.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/5088/85931113.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/5882/index.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/5088/config.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/04 CVE-2012-0507.php",
+		"/C/Documents and Settings/isivakov/Рабочий стол/111.txt",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/07 CVE-2012-1723.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/test_server/dm.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/payloads/DownloadFile.bat",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/module_backup/04 CVE-2012-0507.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/module_backup/04 CVE-2012-0507 hello.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/module_backup/04 CVE-2012-0507 file.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/09 CVE-2012-4969.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/09 lib.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/07 lib.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/java7.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/06 CVE-2012-1889.php",
+		"/C/Documents and Settings/isivakov/Рабочий стол/пр/Наездник/startpayload/CVE-2012-4792.SHELL.W7.Ie8.J6.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/09 CVE-2012-4969.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/module_backup/09 CVE-2012-4969.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/02 CVE-2012-0003.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/05 CVE-2012-1875.php",
+		"/C/Documents and Settings/isivakov/Рабочий стол/пр/Наездник/server/шелл/02 CVE-2012-0003/diffs/ie8_winxp_jre_rop.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/test_server/stuff.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/test_server/link.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/test_server/config.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/17 CVE-2012-5088.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/ajax/ahah.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/ajax/ajax_framework.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/payloads/OpenNotepad.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/java/payloads/Search_exec.java",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/85931113.php",
+		"/C/Documents and Settings/isivakov/Рабочий стол/пр/Наездник/startpayload/CVE-2012-4792.XP.Ie8.JRE6.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/CVE-2012-4792.XP.Ie8.JRE6 stable1.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/CVE-2012-4792l.XP.Ie8.JRE6.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/1.html",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/link.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/server/link.php",
+		"/C/Documents and Settings/isivakov/Рабочий стол/пр/Наездник/startpayload/shell.XP.Ie8.JRE6.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/server/stuff.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/shellcode_config.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/module.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/server/convert.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/server/heaplib.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/convert.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/heaplib.php",
+		"/C/DOCUME~1/isivakov/LOCALS~1/Temp/Rar$DR00.000/shell.XP.Ie8.JRE6.htm",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/server.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/actions/db.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/distributer/script.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/distributer/stuff.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/distributer/wiki.html",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/module_test/15 CVE-2011-1996.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/auth.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/constructor.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/dist_server.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/autocompletion.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/edit_area.css",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/edit_area.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/edit_area_compressor.php",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/edit_area_functions.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/edit_area_loader.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/elements_functions.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/highlight.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/license_lgpl.txt",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/manage_area.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/plugins/charmap/charmap.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/plugins/charmap/css/charmap.css",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/plugins/charmap/jscripts/map.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/plugins/test/test.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/reg_syntax/coldfusion.js",
+		"/C/Program Files/Apache Software Foundation/Apache2.2/htdocs/naezdnik/configurator/edit_area/reg_syntax/css.js"
+	],
+	"find":
+	{
+		"height": 56.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik\\distributer,C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik\\module_test,C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik\\server,C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik\\configurator",
+			"<open files>",
+			"C:\\dev\\hashclash\\src\\libhashutil5\\hashutil5",
+			"C:\\dev\\hashclash\\src",
+			"C:\\dev\\hashclash\\src\\birthdaysearch",
+			"C:\\dev\\hashclash\\src",
+			"C:\\dev\\hashclash\\src\\birthdaysearch",
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik",
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\demos2",
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik",
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\phpmyadmin",
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik\\",
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik\\server",
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik",
+			"C:\\Program Files\\Apache Software Foundation\\Apache2.2\\htdocs\\naezdnik\\server",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"ips",
+			"get_ip_list",
+			"mof",
+			"mod",
+			"WkynckVk",
+			"vbs_content",
+			"mof_name",
+			"on_request_uri",
+			"to_exe_vbs",
+			"generate_payload_exe",
+			"mof_name",
+			"generate_mof",
+			"mof_name",
+			"Accel_Vector",
+			"read_adc",
+			"GRAVITY",
+			" ",
+			"dfgdfg",
+			"asdd",
+			"odType.methodType(MethodHandle.class, Class.class, new Class[] { String.class, MethodTy",
+			"odType(MethodHandle.class, Class.class, new Class[]",
+			"lass.class, new Class[] { ",
+			"public",
+			"qebifi",
+			"adapet",
+			"isinep",
+			"create_file",
+			"class2",
+			"run",
+			"_resizeImage",
+			"_getChainOfBits",
+			"_resizeImage",
+			" ",
+			"localObject1_loc",
+			"localObject1",
+			"tryGetMethod3",
+			"localLookup_loc",
+			"localClass1_loc",
+			"localObject1",
+			"tryGetMethod2",
+			"localClass1_loc",
+			"tryGetMethod2",
+			"tryGetMethod1",
+			"localMethodType2",
+			"post_request",
+			"incl_jquery_local",
+			"test_test",
+			"class1",
+			"test_test",
+			"a_loader",
+			"findConstructor",
+			"localMethodType1",
+			"tryGetMethod2",
+			"test_test",
+			"ManagedObjectManagerFactory",
+			"tryGetMethod2",
+			"tryGetMethod1",
+			"tryGetMethod2",
+			"TryNew",
+			"tryGetMethod1",
+			"TryNew",
+			"hex2Byte",
+			"'",
+			"н",
+			"м",
+			"л",
+			"к",
+			"В",
+			"д",
+			"и",
+			"в",
+			"н",
+			"и",
+			"з",
+			"ж",
+			"е",
+			"д",
+			"г",
+			"в",
+			"б",
+			"а",
+			"В",
+			"1.7",
+			"filename",
+			"path",
+			"file1",
+			"url",
+			"path",
+			"'",
+			" ",
+			"count",
+			"data_buf",
+			"data",
+			"fout",
+			"in",
+			"f1",
+			"url",
+			";\n",
+			"1",
+			"10",
+			"param",
+			"payload_jar_loc",
+			"jar_glob",
+			"expl_loc",
+			"doWork",
+			"jar",
+			"getParameter",
+			"\n",
+			"getParameter",
+			"data",
+			"dif1",
+			"PWU3fP/9//+YfzR8ohU0fP////8CZDd8BR41fFVSNHx0ITV8h080fMD///+xHjV8AdI0fAGwOHyXfzR8UaE3fIGMN3wwXDR8",
+			" ",
+			"dif2",
+			"shell",
+			"sc",
+			"rop",
+			"dif1",
+			");\n",
+			"\\n\\s*\\{\\s*\\n",
+			"define",
+			"dbAddServerIp",
+			"\\n\\s*\\{\\s*\\n",
+			"\\n\\s*\\{\\s\\n",
+			"\\n\\s*\\{\\s+\\n",
+			" \\n",
+			"\\s+\\n",
+			"\\s\\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\", \"",
+			" \\{\\n",
+			"\\n",
+			"",
+			"\\n",
+			"",
+			"MODULE_PATH",
+			"LINK_PATH",
+			"module_id",
+			"FROM ",
+			"<?php",
+			"\", \"",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "RADIO.ino",
+					"settings":
+					{
+						"buffer_size": 3122,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 88.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 88.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 184.0,
+	"status_bar_visible": true
+}

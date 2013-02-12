@@ -40,6 +40,9 @@ void GlutInit()
 
 int main(int argc, char **argv)
 {
+	HWND console = GetConsoleWindow();
+	ShowWindow(console, SW_HIDE);
+
 	engine = new Engine();
 
 	glutInit(&argc,argv);

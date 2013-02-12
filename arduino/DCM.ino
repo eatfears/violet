@@ -165,10 +165,3 @@ void Euler_angles(void)
   roll = atan2(DCM_Matrix[2][1],DCM_Matrix[2][2]);
   yaw = atan2(DCM_Matrix[1][0],DCM_Matrix[0][0]);
 }
-
-
-
-
-
-
-

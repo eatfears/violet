@@ -104,7 +104,3 @@ void loop()
     Serial.write((uint8_t*) &Accel_Vector, 4*3);
   }
 }
-
-
-
-

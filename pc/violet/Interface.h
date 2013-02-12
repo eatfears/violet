@@ -1,5 +1,6 @@
 #pragma once
 #include "comport.h"
+#include <boost/thread.hpp>
 
 class Interface
 {
@@ -7,20 +8,25 @@ public:
 	Interface(void);
 	~Interface(void);
 
-	void read();
-	int timeout;
+	void Connect();
+	void Disconnect();
 
-	char hello[6];
-	float pitch;
-	float yaw;
-	float roll;
-	float mhead;
-	float AN[8];
-	float AN_OFFSET[8];
-	float G_Dt;
-	float DCM_Matrix[3][3];
-	float Accel_vector[3];
+	bool connected;
 
-	COMPort *com;
+	float quadroPitch;
+	float quadroYaw;
+	float quadroRoll;
+	float quadroMagHead;
+	float quadroAnalogReads[8];
+	float quadroAnalogOffsets[8];
+	float quadroDeltaTime;
+	float quadroDCMMatrix[3][3];
+	float quadroAccelVector[3];
+
+private:
+	boost::thread _commThread;
+	int _timeout;
+	char _syncMessage[6];
+	COMPort *_comPort;
 };
 

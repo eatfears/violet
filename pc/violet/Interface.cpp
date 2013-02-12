@@ -3,42 +3,67 @@
 
 Interface::Interface(void)
 {
-	com = new COMPort("Com2");
-
-	com->setBitRate(COMPort::br115200);
+	quadroPitch = quadroRoll = quadroYaw = quadroMagHead = quadroDeltaTime = 0;
+	for(int i = 0; i < 8; i++) {
+		quadroAnalogReads[i] = quadroAnalogOffsets[i] = 0;
+	}
+	for(int i = 0; i < 3; i++) {
+		for(int j = 0; j < 3; j++) {
+			quadroDCMMatrix[i][j] = 0;
+		}
+		quadroAccelVector[i] = 0;
+	}
 }
 
 
 Interface::~Interface(void)
 {
-	delete com;
 }
 
-void Interface::read()
+void _StartReading(Interface *ifc, COMPort *_comPort);
+
+void Interface::Connect()
 {
-	while(1)
-	{
-		if(com->read() == 'h')
-		if(com->read() == 'e')
-		if(com->read() == 'l')
-		if(com->read() == 'l')
-		if(com->read() == 'o')
-			break;
+	_comPort = new COMPort("Com13");
+	_comPort->setBitRate(COMPort::br115200);
+	connected = true;
+
+	_commThread = boost::thread (_StartReading, this, _comPort);
+}
+
+void Interface::Disconnect()
+{
+	delete _comPort;
+	connected = false;
+}
+
+void _StartReading(Interface *ifc, COMPort *_comPort)
+{
+	while(1) {
+
+		while(1) {
+			if(_comPort->read() == 'h')
+				if(_comPort->read() == 'e')
+					if(_comPort->read() == 'l')
+						if(_comPort->read() == 'l')
+							if(_comPort->read() == 'o')
+								break;
+		}
+
+		_comPort->read(&ifc->quadroPitch, 4);
+		_comPort->read(&ifc->quadroRoll, 4);
+		_comPort->read(&ifc->quadroYaw, 4);
+		_comPort->read(&ifc->quadroMagHead, 4);
+
+		_comPort->read(&ifc->quadroAnalogReads, 4*8);
+		_comPort->read(&ifc->quadroAnalogOffsets, 4*8);
+		_comPort->read(&ifc->quadroDeltaTime, 4);
+
+		_comPort->read(&ifc->quadroDCMMatrix[0], 4*3);
+		_comPort->read(&ifc->quadroDCMMatrix[1], 4*3);
+		_comPort->read(&ifc->quadroDCMMatrix[2], 4*3);
+
+		_comPort->read(&ifc->quadroAccelVector, 4*3);
 	}
-
-	com->read(&pitch, 4);
-	com->read(&roll, 4);
-	com->read(&yaw, 4);
-	com->read(&mhead, 4);
-
-	com->read(&AN, 4*8);
-	com->read(&AN_OFFSET, 4*8);
-	com->read(&G_Dt, 4);
-
-	com->read(&DCM_Matrix[0], 4*3);
-	com->read(&DCM_Matrix[1], 4*3);
-	com->read(&DCM_Matrix[2], 4*3);
-
-	com->read(&Accel_vector, 4*3);
 }
 

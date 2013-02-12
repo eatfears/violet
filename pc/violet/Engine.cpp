@@ -117,14 +117,19 @@ void Engine::Display()
 
 void Engine::Keyboard(unsigned char button, int x, int y, bool KeyDown)
 {
+#ifdef _WIN32
+	button = VkKeyScan(button);
+#endif
+
 	switch(button)
 	{
 	case KEY_ESCAPE: glutExit();
 		break;
+
+	case ' ': inter.Connect();
+		break;
+
 	default:
-#ifdef _WIN32
-		button = VkKeyScan(button);
-#endif
 		//wWorld.player.bKeyboard[button] = KeyDown;
 		break;
 	}
@@ -132,10 +137,9 @@ void Engine::Keyboard(unsigned char button, int x, int y, bool KeyDown)
 
 void Engine::MouseMotion(int x, int y)
 {
-	if(bMousing)
-	{
-/*		Character &player = wWorld.player;
+	if(bMousing) {
 		bMousing = false;
+/*		Character &player = wWorld.player;
 
 		player.dSpinY -= (x - width/2)/MOUSE_SENSIVITY;
 		player.dSpinX -= (y - height/2)/MOUSE_SENSIVITY;
@@ -148,11 +152,11 @@ void Engine::MouseMotion(int x, int y)
 
 		if(player.dSpinX < -90.0) player.dSpinX = -90.0;
 		if(player.dSpinX > 90.0) player.dSpinX = 90.0;
-
-		glutWarpPointer(width/2,height/2);
-*/	}
-	else
+*/
+		//glutWarpPointer(width/2, height/2);
+	} else {
 		bMousing = true;
+	}
 }
 
 void Engine::MouseButton(int button, int state, int x, int y)
@@ -171,9 +175,6 @@ void Engine::InitGame()
 {
 #ifdef _WIN32
 	SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_ABOVE_NORMAL);
-
-	HWND console = GetConsoleWindow();
-	ShowWindow(console, SW_HIDE);
 #endif // _WIN32
 
 	unsigned int seed = std::time(0);
@@ -265,7 +266,7 @@ void Engine::Loop()
 	Display();
 
 	//player.Control(FrameInterval);
-	inter.read();
+	//inter.Read();
 	DrawInterface();
 
 	GetFrameTime();

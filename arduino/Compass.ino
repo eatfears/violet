@@ -81,5 +81,3 @@ void Compass_Heading()
    mag_heading_x = cos(MAG_Heading);
    mag_heading_y = sin(MAG_Heading);*/
 }
-
-

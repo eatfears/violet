@@ -127,11 +127,3 @@ void ServoPowerSet( int i, int Power)
 {
   PWM_power_ready[i] = Power;
 }
-
-
-
-
-
-
-
-

@@ -122,4 +122,3 @@ void Take_Gyro_Offset()
     delay(20);
   }
 }
-

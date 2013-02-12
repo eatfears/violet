@@ -38,25 +38,41 @@ void Statistics::PrintStat(void)
 
 	RenderString(50, engine.height - 50, font, cFPS);
 
-	b_sprintf(pos, "Pitch: %f\n", engine.inter.pitch);
+	b_sprintf(pos, "Pitch: %f\n", engine.inter.quadroPitch);
 	RenderString(50, engine.height - 70, font, pos);
-	b_sprintf(pos, "Roll: %f\n", engine.inter.roll);
+	b_sprintf(pos, "Roll: %f\n", engine.inter.quadroRoll);
 	RenderString(50, engine.height - 90, font, pos);
-	b_sprintf(pos, "Yaw: %f\n", engine.inter.yaw);
+	b_sprintf(pos, "Yaw: %f\n", engine.inter.quadroYaw);
 	RenderString(50, engine.height - 110, font, pos);
-	b_sprintf(pos, "Magnet heading: %f\n", engine.inter.mhead);
+	b_sprintf(pos, "Magnet heading: %f\n", engine.inter.quadroMagHead);
 	RenderString(50, engine.height - 130, font, pos);
 
 
-	b_sprintf(pos, "Analog readings:\n%f, %f, %f, %f\t%f\n%f, %f, %f\n", engine.inter.AN[0], engine.inter.AN[1], engine.inter.AN[2], engine.inter.AN[3], engine.inter.AN[4], engine.inter.AN[5], engine.inter.AN[6], engine.inter.AN[7]);
+	b_sprintf(pos, "Analog readings:\n%f, %f, %f, %f\t%f\n%f, %f, %f\n", 
+		engine.inter.quadroAnalogReads[0], 
+		engine.inter.quadroAnalogReads[1], 
+		engine.inter.quadroAnalogReads[2], 
+		engine.inter.quadroAnalogReads[3], 
+		engine.inter.quadroAnalogReads[4], 
+		engine.inter.quadroAnalogReads[5], 
+		engine.inter.quadroAnalogReads[6], 
+		engine.inter.quadroAnalogReads[7]);
 	RenderString(250, engine.height - 50, font, pos);
-	b_sprintf(pos, "Analog readings:\n%f, %f, %f, %f\t%f\n%f, %f, %f\n", engine.inter.AN_OFFSET[0], engine.inter.AN_OFFSET[1], engine.inter.AN_OFFSET[2], engine.inter.AN_OFFSET[3], engine.inter.AN_OFFSET[4], engine.inter.AN_OFFSET[5], engine.inter.AN_OFFSET[6], engine.inter.AN_OFFSET[7]);
+	b_sprintf(pos, "Analog readings:\n%f, %f, %f, %f\t%f\n%f, %f, %f\n", 
+		engine.inter.quadroAnalogOffsets[0], 
+		engine.inter.quadroAnalogOffsets[1], 
+		engine.inter.quadroAnalogOffsets[2], 
+		engine.inter.quadroAnalogOffsets[3], 
+		engine.inter.quadroAnalogOffsets[4], 
+		engine.inter.quadroAnalogOffsets[5], 
+		engine.inter.quadroAnalogOffsets[6], 
+		engine.inter.quadroAnalogOffsets[7]);
 	RenderString(250, engine.height - 100, font, pos);
-	b_sprintf(pos, "Dt: %f\n", engine.inter.G_Dt);
+	b_sprintf(pos, "Dt: %f\n", engine.inter.quadroDeltaTime);
 	RenderString(250, engine.height - 150, font, pos);
 
 
-	b_sprintf(pos, "Accel vector: %f, %f, %f\n", engine.inter.Accel_vector[0], engine.inter.Accel_vector[1], engine.inter.Accel_vector[2]);
+	b_sprintf(pos, "Accel vector: %f, %f, %f\n", engine.inter.quadroAccelVector[0], engine.inter.quadroAccelVector[1], engine.inter.quadroAccelVector[2]);
 	RenderString(250, engine.height - 170, font, pos);
 
 	//com->read(&DCM_Matrix[0], 4*3);
