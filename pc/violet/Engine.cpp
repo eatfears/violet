@@ -68,10 +68,47 @@ void Engine::Display()
 	glEnable(GL_DEPTH_TEST);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// ќчистить экран и буфер глубины
 	glLoadIdentity();											// —бросить текущую матрицу
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	OpenGL3d();
 
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
+
+	glColor3f(0.4f, 0.4f, 0.4f);
+		/*
+	glBegin(GL_TRIANGLES);
+	glVertex3f(-1.0f, -1.0f, -2.0f);
+	glVertex3f( 0.0f,  1.0f, -2.0f);
+	glVertex3f( 1.0f, -1.0f, -2.0f);
+	glEnd();*/
+
+	//GL_PROJECTION
+	//GL_MODELVIEW
+	// 
+	/*
+	 *quadro
+	glTranslatef(0, 0, -5);
+	glMatrixMode(GL_MODELVIEW);
+	static float s = 0;
+	s+= 0.09;
+	glRotatef(s,1,0,0);
+	glPushMatrix();
+	glScalef(20,1,1);
+	glutSolidCube(0.1);
+	glPopMatrix();
+	glPushMatrix();
+	glScalef(1,20,1);
+	glutSolidCube(0.1);
+	glPopMatrix();
+	
+	glTranslatef(2, 0, 0);
+	glutSolidCylinder(1,0.1,50,1);
+	glTranslatef(-4, 0, 0);
+	glutSolidCylinder(1,0.1,50,1);
+	glTranslatef(2, 2, 0);
+	glutSolidCylinder(1,0.1,50,1);
+	glTranslatef(0, -4, 0);
+	glutSolidCylinder(1,0.1,50,1);
+	*/
 
 	//Set position
 	//glRotated(-player.dSpinX, 1.0, 0.0, 0.0);
@@ -79,9 +116,9 @@ void Engine::Display()
 	//glTranslated(-player.dPositionX, -player.dPositionY, -player.dPositionZ);
 
 
-	glEnable(GL_FOG);
-	glFogi(GL_FOG_MODE,  GL_LINEAR);
-	glHint(GL_FOG_HINT, GL_DONT_CARE);
+	//glEnable(GL_FOG);
+	//glFogi(GL_FOG_MODE,  GL_LINEAR);
+	//glHint(GL_FOG_HINT, GL_DONT_CARE);
 	/*
 	if(player.UnderWater)
 	{
@@ -91,10 +128,12 @@ void Engine::Display()
 		glFogf(GL_FOG_END, BLOCK_SIZE*30);
 	}*/
 
-	glColor3d(1.0, 1.0, 1.0);
+
+
+	//glColor3d(1.0, 1.0, 1.0);
 
 //	glBindTexture(GL_TEXTURE_2D, tex[TERRAIN]);
-	int render;
+	//int render;
 
 	/*if(player.bKeyboard['Z'])
 	{
@@ -103,15 +142,14 @@ void Engine::Display()
 		wWorld.LightToRefresh = true;
 	}
 	*/
-	stat.reRenderedChunks = 0;
 
 
-	glEnable(GL_ALPHA_TEST);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	//glEnable(GL_ALPHA_TEST);
+	//glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	glDisable(GL_ALPHA_TEST);
-	glDisable(GL_BLEND);
+	//glDisable(GL_ALPHA_TEST);
+	//glDisable(GL_BLEND);
 
 }
 
@@ -194,71 +232,80 @@ void Engine::DrawInterface()
 
 	//glLoadIdentity();
 	OpenGL2d();
-
-/*	{
-		GLfloat Brightness;
-		Light::GetLight(*player.chunk, player.index, Brightness);
-
-		GLdouble TextureRotation = player.dSpinY/90;
-
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-		glBindTexture(GL_TEXTURE_2D, wWorld.MaterialLib.texture[UNDERWATER]);
-		glColor4f(Brightness, Brightness, Brightness, 0.9f);
-
-		glBegin(GL_QUADS);
-		glTexCoord2d(0.0 - TextureRotation, 0.0);
-		glVertex2i(WidthBy2- 3*HeightBy2, 0);
-		glTexCoord2d(0.0 - TextureRotation, 1.0);
-		glVertex2i(WidthBy2 - 3*HeightBy2, height);
-		glTexCoord2d(3.0 - TextureRotation, 1.0);
-		glVertex2i(WidthBy2 + 3*HeightBy2, height);
-		glTexCoord2d(3.0 - TextureRotation, 0.0);
-		glVertex2i(WidthBy2 + 3*HeightBy2, 0);
-		glEnd();
-
-		glDisable(GL_BLEND);
-	}
-	*/
-	//Vignette
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_ZERO, GL_ONE_MINUS_SRC_COLOR);
-
-//	glBindTexture(GL_TEXTURE_2D, wWorld.MaterialLib.texture[VIGNETTE]);
-
-	glColor3f(0.4f, 0.4f, 0.4f);
-
-	glBegin(GL_QUADS);
-	glTexCoord2d(0.0, 0.0);
-	glVertex2i(0, 0);
-	glTexCoord2d(0.0, 1.0);
-	glVertex2i(0, height);
-	glTexCoord2d(1.0, 1.0);
-	glVertex2i(width, height);
-	glTexCoord2d(1.0, 0.0);
-	glVertex2i(width, 0);
-	glEnd();
-
 	glDisable(GL_BLEND);
-
-	//Cross
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_ONE_MINUS_DST_COLOR, GL_ZERO);
-
-	glBindTexture(GL_TEXTURE_2D, 0);
 	glColor3f(1.0, 1.0, 1.0);
-	glLineWidth (2.0);
+	//HUD
+	glLoadIdentity();
+
+	glLineWidth (1.5);
+
+	glTranslated(WidthBy2,HeightBy2,0);
+	static float s = 0;
+
+	int pixPerDeg = 10.5;
+	
+	glRotatef(TODEG(inter.quadroRoll),0,0,1);
+	glTranslatef(0,TODEG(inter.quadroPitch)*pixPerDeg,0);
+	
+	s+= 0.1;
+	int sizline = 100;
+	int sizline2 = 70;
+	int sizline3 = 20;
+	int sizline4 = 10;
+
+	int siz = (sizline2-sizline3)/5;
 
 	glBegin(GL_LINES);
-	glVertex2i(WidthBy2, -9 + HeightBy2);
-	glVertex2i(WidthBy2,  9 + HeightBy2);
 
-	glVertex2i(-9 + WidthBy2, HeightBy2);
-	glVertex2i(-1 + WidthBy2, HeightBy2);
-	glVertex2i( 1 + WidthBy2, HeightBy2);
-	glVertex2i( 9 + WidthBy2, HeightBy2);
+	for (int deg = -360; deg <= 360; deg += 5)
+	{
+		int h = deg*pixPerDeg;
+		if(deg == 0 || deg == 360 || deg == -360) {
+			glVertex2f(-sizline, h);
+			glVertex2f(-sizline3, h);
+			glVertex2f(sizline, h);
+			glVertex2f(sizline3, h);
+
+			glVertex2f(-sizline, h);
+			glVertex2f(-sizline, h-sizline4);
+			glVertex2f(sizline, h);
+			glVertex2f(sizline, h-sizline4);
+
+		} else if (deg > 0){
+			glVertex2f(-sizline2, h);
+			glVertex2f(-sizline3, h);
+			glVertex2f(sizline2, h);
+			glVertex2f(sizline3, h);
+
+			glVertex2f(-sizline2, h);
+			glVertex2f(-sizline2, h-sizline4);
+			glVertex2f(sizline2, h);
+			glVertex2f(sizline2, h-sizline4);
+
+		} else if (deg < 0){
+			glVertex2f(-sizline2, h);
+			glVertex2f(-sizline2 + siz, h);
+			glVertex2f(-sizline2 + siz*2, h);
+			glVertex2f(-sizline2 + siz*3, h);
+			glVertex2f(-sizline2 + siz*4, h);
+			glVertex2f(-sizline2 + siz*5, h);
+			glVertex2f(sizline2, h);
+			glVertex2f(sizline2 - siz, h);
+			glVertex2f(sizline2 - siz*2, h);
+			glVertex2f(sizline2 - siz*3, h);
+			glVertex2f(sizline2 - siz*4, h);
+			glVertex2f(sizline2 - siz*5, h);
+
+			glVertex2f(-sizline2, h);
+			glVertex2f(-sizline2, h+sizline4);
+			glVertex2f(sizline2, h);
+			glVertex2f(sizline2, h+sizline4);
+		}
+	}
+	
 	glEnd();
+
+	glLoadIdentity();
 
 	//Statistics
 	stat.PrintStat();
