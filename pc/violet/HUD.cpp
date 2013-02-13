@@ -55,7 +55,27 @@ void HUD::DisplayYaw()
 	glVertex2i(0, 0);
 	glVertex2i(-arrowSize, -arrowSize*2);
 	glEnd();
+	int tempyaw = TODEG(inter->quadroYaw);
+	while(tempyaw >= 360) tempyaw -= 360;
+	while(tempyaw < 0) tempyaw += 360;
+	b_sprintf(temp_text, "%3.3d", tempyaw);
 
+
+	glPushMatrix();
+	glTranslatef(0,-25,0);
+	glBegin(GL_LINE_LOOP);    //border
+	glVertex2i(-15, -5);
+	glVertex2i(15, -5);
+	glVertex2i(15, 15);
+	glVertex2i(-15, 15);
+	glEnd();
+
+	glTranslatef(-12,0,0);
+	glScalef(0.1, 0.1, 0.1);
+	glutStrokeString(GLUT_STROKE_ROMAN, (unsigned char*) temp_text);	//heading
+	glPopMatrix();
+
+	
 	glTranslatef(-TODEG(inter->quadroYaw)*pixPerDeg,0,0);
 
 	int size1 = 20;
@@ -71,13 +91,12 @@ void HUD::DisplayYaw()
 	glEnd();
 
 	glTranslated(-12,size1+2,0);
-	int temp;
 	for(int deg = -360; deg <= 360; deg += 10) {
 		glPushMatrix();
-		temp = deg;
-		while(temp >= 360) temp -= 360;
-		while(temp < 0) temp += 360;
-		b_sprintf(temp_text, "%3.3d", temp);
+		tempyaw = deg;
+		while(tempyaw >= 360) tempyaw -= 360;
+		while(tempyaw < 0) tempyaw += 360;
+		b_sprintf(temp_text, "%3.3d", tempyaw);
 		//if(deg >= -90 && deg <= 90) b_sprintf(temp_text, "%d", deg);
 		//if(deg > 90) b_sprintf(temp_text, "%d", 180 - deg);
 		//if(deg < -90) b_sprintf(temp_text, "%d", -180 - deg);
@@ -232,4 +251,36 @@ void HUD::_circle( float r, float s )
 	for(float i = M_PI; i >= -M_PI; i -= s)
 		glVertex2f(cos(i) * r, sin(i) * r);
 	glEnd();
+}
+
+void HUD::DisplayCompass()
+{
+	glLoadIdentity();
+	float pixPerDeg = (((width) < (height)) ? (width) : (height))/Deg;
+
+	static char temp_text[16] = "";
+	//	350		0		010
+	//	|		|		|
+	//	|	|	|	|	|
+	//			/\
+
+	int innerRad = 30;
+	int size = 5;
+	int yPos = 40;
+
+	glTranslated(width/2, yPos,0);
+
+
+	//glTranslatef(-TODEG(inter->quadroYaw)*pixPerDeg,0,0);
+	//glRotatef(TODEG(inter->quadroRoll),0,0,1);
+
+	for(int deg = 0; deg < 360; deg += 10) 
+	{
+		glBegin(GL_LINES);    
+		glVertex2i(0, innerRad);
+		glVertex2i(0, innerRad+size);
+		glEnd();
+		glRotatef(10,0,0,1);
+	}
+
 }
