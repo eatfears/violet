@@ -29,8 +29,7 @@ void Statistics::PrintStat(void)
 	static void *font = GLUT_BITMAP_HELVETICA_12;
 	static int h, m, s;
 
-	if (TimeCount > 100)
-	{
+	if (TimeCount > 100) {
 		b_sprintf(cFPS, "FPS: %0.1f\n", 1000.0*FrameCount/TimeCount);
 		TimeCount = 0.0;
 		FrameCount = 0;
@@ -47,7 +46,7 @@ void Statistics::PrintStat(void)
 	b_sprintf(pos, "Magnet heading: %f\n", engine.inter.quadroMagHead);
 	RenderString(50, engine.height - 130, font, pos);
 
-
+	/*
 	b_sprintf(pos, "Analog readings:\n%f, %f, %f, %f\t%f\n%f, %f, %f\n", 
 		engine.inter.quadroAnalogReads[0], 
 		engine.inter.quadroAnalogReads[1], 
@@ -74,7 +73,7 @@ void Statistics::PrintStat(void)
 
 	b_sprintf(pos, "Accel vector: %f, %f, %f\n", engine.inter.quadroAccelVector[0], engine.inter.quadroAccelVector[1], engine.inter.quadroAccelVector[2]);
 	RenderString(250, engine.height - 170, font, pos);
-
+	*/
 	//com->read(&DCM_Matrix[0], 4*3);
 	//com->read(&DCM_Matrix[1], 4*3);
 	//com->read(&DCM_Matrix[2], 4*3);

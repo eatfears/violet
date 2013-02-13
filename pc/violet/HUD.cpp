@@ -127,16 +127,15 @@ void HUD::DisplayPitch()
 	glTranslated(width/2,height/2,0);
 
 	_circle(r, 8);
-
 	glBegin(GL_LINES);    
 	glVertex2f(r, 0);
 	glVertex2f(sizline3, 0);
 	glVertex2f(-r, 0);
 	glVertex2f(-sizline3, 0);
 	glVertex2f(0, r);
-	glVertex2f(0, sizline3);
+	glVertex2f(0, sizline3/2);
 	glVertex2f(0, -r);
-	glVertex2f(0, -sizline3);
+	glVertex2f(0, -sizline3/2);
 	glEnd();
 
 	glRotatef(TODEG(inter->quadroRoll),0,0,1);
