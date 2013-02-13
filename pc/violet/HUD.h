@@ -12,7 +12,8 @@ public:
 
 private:
 	void DisplayPitch(int width, int height, float Deg);
-
+	void DisplayYaw(int width, int height, float Deg);
+	
 	Interface *inter;
 };
 
