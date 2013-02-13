@@ -4,6 +4,7 @@
 
 #include "Interface.h"
 #include "Statistics.h"
+#include "HUD.h"
 
 class Engine
 {
@@ -39,4 +40,5 @@ private:
 	friend class Statistics;
 	Interface inter;
 	Statistics stat;
+	HUD *hud;
 };

@@ -29,6 +29,9 @@
     <ClCompile Include="comport.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -50,6 +53,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="comport.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

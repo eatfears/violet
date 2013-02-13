@@ -181,6 +181,7 @@
     <ClInclude Include="comport.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="PlatformDefinitions.h" />
     <ClInclude Include="resource.h" />
@@ -189,6 +190,7 @@
   <ItemGroup>
     <ClCompile Include="comport.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Violet.cpp" />
     <ClCompile Include="PlatformDefinitions.cpp" />

@@ -48,8 +48,20 @@ void Interface::Disconnect()
 	}
 }
 
+//#include <windows.h>
 void _StartReading(Interface *ifc, COMPort *_comPort)
 {
+	/*
+	while(1) {
+		static float quadroRoll = 0, quadroPitch = 0;
+		quadroPitch+=0.005;
+		quadroRoll+=0.001;
+
+		ifc->quadroPitch = sin(quadroPitch)*1.5;
+		ifc->quadroRoll = sin(quadroRoll)*1.5;
+		Sleep(20);
+	}*/
+
 	try{
 		while(1) {
 			while(1) {
