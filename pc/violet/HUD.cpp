@@ -17,15 +17,25 @@ HUD::~HUD(void)
 
 void HUD::Display(int width, int height, float Deg)
 {
+	this->width = width;
+	this->height = height;
+	this->Deg = Deg;
 	glColor3f(1.0, 1.0, 1.0);
-	glLineWidth (1.);
+	glLineWidth (1.3);
 	//HUD
+	glEnable( GL_LINE_SMOOTH );
+	glEnable( GL_POLYGON_SMOOTH );
+	glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
+	glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST );
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//DisplayPitch(width, height, Deg);
-	DisplayYaw(width, height, Deg);
+	DisplayPitch();
+	DisplayYaw();
+	//DisplayCompass();
 }
 
-void HUD::DisplayYaw(int width, int height, float Deg)
+void HUD::DisplayYaw()
 {
 	glLoadIdentity();
 	float pixPerDeg = (((width) < (height)) ? (width) : (height))/Deg;
@@ -37,14 +47,16 @@ void HUD::DisplayYaw(int width, int height, float Deg)
 	//			/\
 
 	int arrowSize = 5;
-	int arrowPos = 100;
-	glTranslated(width/2,height - arrowPos,0);
+	int yPos = 70;
+	glTranslated(width/2, height - yPos,0);
 	glBegin(GL_LINES);    
 	glVertex2i(-1, 0);
 	glVertex2i(arrowSize-1, -arrowSize*2);
 	glVertex2i(0, 0);
 	glVertex2i(-arrowSize, -arrowSize*2);
 	glEnd();
+
+	glTranslatef(-TODEG(inter->quadroYaw)*pixPerDeg,0,0);
 
 	int size1 = 20;
 	int size2 = 5;
@@ -57,15 +69,34 @@ void HUD::DisplayYaw(int width, int height, float Deg)
 		else glVertex2i(h, size1);
 	}
 	glEnd();
+
+	glTranslated(-12,size1+2,0);
+	int temp;
+	for(int deg = -360; deg <= 360; deg += 10) {
+		glPushMatrix();
+		temp = deg;
+		while(temp >= 360) temp -= 360;
+		while(temp < 0) temp += 360;
+		b_sprintf(temp_text, "%3.3d", temp);
+		//if(deg >= -90 && deg <= 90) b_sprintf(temp_text, "%d", deg);
+		//if(deg > 90) b_sprintf(temp_text, "%d", 180 - deg);
+		//if(deg < -90) b_sprintf(temp_text, "%d", -180 - deg);
+
+		glTranslated(deg*pixPerDeg,0,0);
+
+		glScalef(0.1, 0.1, 0.1);
+		glutStrokeString(GLUT_STROKE_ROMAN, (unsigned char*) temp_text);
+		glPopMatrix();
+
+	}
 }
 
-void HUD::DisplayPitch(int width, int height, float Deg)
+void HUD::DisplayPitch()
 {
 	glLoadIdentity();
 	float pixPerDeg = (((width) < (height)) ? (width) : (height))/Deg;
 	//pixPerDeg = (((width) > (height)) ? (width) : (height))/Deg;
 
-	float s = 8.;
 	float r = 5.;
 
 	int sizline = 120;
@@ -76,11 +107,7 @@ void HUD::DisplayPitch(int width, int height, float Deg)
 
 	glTranslated(width/2,height/2,0);
 
-	s = (M_PI * 2 / s);
-	glBegin(GL_LINE_LOOP);    
-	for(float i = M_PI; i >= -M_PI; i -= s)
-		glVertex2f(cos(i) * r, sin(i) * r);
-	glEnd();
+	_circle(r, 8);
 
 	glBegin(GL_LINES);    
 	glVertex2f(r, 0);
@@ -91,13 +118,10 @@ void HUD::DisplayPitch(int width, int height, float Deg)
 	glVertex2f(0, sizline3);
 	glVertex2f(0, -r);
 	glVertex2f(0, -sizline3);
-
 	glEnd();
-
 
 	glRotatef(TODEG(inter->quadroRoll),0,0,1);
 	glTranslatef(0,-TODEG(inter->quadroPitch)*pixPerDeg,0);
-
 
 	int siz = (sizline2-sizline3)/5;
 
@@ -198,5 +222,14 @@ void HUD::DisplayPitch(int width, int height, float Deg)
 		}
 	}
 
+	glEnd();
+}
+
+void HUD::_circle( float r, float s )
+{
+	s = (M_PI * 2 / s);
+	glBegin(GL_LINE_LOOP);    
+	for(float i = M_PI; i >= -M_PI; i -= s)
+		glVertex2f(cos(i) * r, sin(i) * r);
 	glEnd();
 }

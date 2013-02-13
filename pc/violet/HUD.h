@@ -11,8 +11,14 @@ public:
 	void Display(int width, int height, float Deg);
 
 private:
-	void DisplayPitch(int width, int height, float Deg);
-	void DisplayYaw(int width, int height, float Deg);
+	void DisplayPitch();
+	void DisplayYaw();
+	void DisplayCompass();
+
+	int width;
+	int height;
+	float Deg;
+	void _circle(float r, float s);
 	
 	Interface *inter;
 };
