@@ -61,7 +61,7 @@ void Engine::Reshape(int width, int height)
 	this->width = width;
 	this->height = height;
 
-	OpenGL3d();
+	//OpenGL3d();
 	//glutPostRedisplay();
 }
 
@@ -71,7 +71,7 @@ void Engine::Display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		// ќчистить экран и буфер глубины
 	glLoadIdentity();											// —бросить текущую матрицу
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	OpenGL3d();
+	//OpenGL3d();
 
 
 
@@ -163,7 +163,9 @@ void Engine::Keyboard(unsigned char button, int x, int y, bool KeyDown)
 
 	switch(button)
 	{
-	case KEY_ESCAPE: glutExit();
+	case KEY_ESCAPE: 
+		cam.release();
+		glutExit();
 		break;
 
 	case 'S':
@@ -231,8 +233,7 @@ void Engine::DrawInterface()
 	//glPopMatrix();
 	//glLoadIdentity();
 	OpenGL2d();
-	glDisable(GL_BLEND);
-
+	
 	hud->Display(width, height, 50);
 
 	glLoadIdentity();
@@ -248,6 +249,7 @@ void Engine::Loop()
 
 	//player.Control(FrameInterval);
 	//inter.Read();
+	cam.displayCam(width, height);
 	DrawInterface();
 
 	GetFrameTime();

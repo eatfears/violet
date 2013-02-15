@@ -66,7 +66,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\dev\libs\projects\boost_1_48_0;C:\dev\libs\include;$(OPENCV_DIR)\include</IncludePath>
+    <IncludePath>C:\dev\libs\projects\boost_1_48_0;C:\dev\libs\include;$(OPENCV_DIR)\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\dev\libs\projects\boost_1_48_0\stage\lib;C:\dev\libs\lib;$(OPENCV_DIR)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\dev\libs\projects\boost_1_48_0;C:\dev\libs\include;$(OPENCV_DIR)\include</IncludePath>
+    <IncludePath>C:\dev\libs\projects\boost_1_48_0;C:\dev\libs\include;$(OPENCV_DIR)\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\dev\libs\projects\boost_1_48_0\stage\lib;C:\dev\libs\lib;$(OPENCV_DIR)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -181,6 +181,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CamField.h" />
     <ClInclude Include="comport.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Engine.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Statistics.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CamField.cpp" />
     <ClCompile Include="comport.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="HUD.cpp" />

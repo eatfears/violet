@@ -20,6 +20,7 @@ void HUD::Display(int width, int height, float Deg)
 	this->width = width;
 	this->height = height;
 	this->Deg = Deg;
+
 	glColor3f(1.0, 1.0, 1.0);
 	glLineWidth (1.3);
 	//HUD
@@ -29,6 +30,7 @@ void HUD::Display(int width, int height, float Deg)
 	glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST );
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	//glBlendFunc(GL_ONE_MINUS_DST_COLOR, GL_ZERO);
 
 	DisplayPitch();
 	DisplayYaw();
