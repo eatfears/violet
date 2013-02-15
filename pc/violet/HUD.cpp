@@ -47,7 +47,7 @@ void HUD::DisplayYaw()
 	//			/\		
 
 	int scissSize = pixPerDeg*30;
-	glScissor  (width/2-scissSize, height, scissSize*2, height - 100);
+	glScissor  (width/2-scissSize, height - 100, scissSize*2, height);
 	glEnable(GL_SCISSOR_TEST);
 	/*
 	glColor3f(0.1,0.1,0.1);

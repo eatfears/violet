@@ -28,9 +28,9 @@ void Interface::Connect()
 {
 	if(!connected) {
 		try{
-			_comPort = new COMPort("Com2");
-			_comPort->setBitRate(COMPort::br115200);
-			_comPort->setBlockingMode(_timeout, _timeout);
+			//_comPort = new COMPort("Com2");
+			//_comPort->setBitRate(COMPort::br115200);
+			//_comPort->setBlockingMode(_timeout, _timeout);
 			connected = true;
 			_commThread = boost::thread (_StartReading, this, _comPort);
 		}
@@ -43,24 +43,26 @@ void Interface::Connect()
 void Interface::Disconnect()
 {
 	if(connected) {
-		delete _comPort;
+		//delete _comPort;
 		connected = false;
 	}
 }
 
-//#include <windows.h>
+#include <windows.h>
 void _StartReading(Interface *ifc, COMPort *_comPort)
 {
-	/*
+
 	while(1) {
-		static float quadroRoll = 0, quadroPitch = 0;
+		static float quadroRoll = 0, quadroPitch = 0, quadroYaw = 0;
 		quadroPitch+=0.005;
 		quadroRoll+=0.001;
+		quadroYaw+=0.002;
 
 		ifc->quadroPitch = sin(quadroPitch)*1.5;
 		ifc->quadroRoll = sin(quadroRoll)*1.5;
+		ifc->quadroYaw = sin(quadroYaw)*2.5;
 		Sleep(20);
-	}*/
+	}
 
 	try{
 		while(1) {
