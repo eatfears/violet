@@ -44,7 +44,21 @@ void HUD::DisplayYaw()
 	//	350		0		010
 	//	|		|		|
 	//	|	|	|	|	|
-	//			/\
+	//			/\		
+
+	int scissSize = pixPerDeg*30;
+	glScissor  (width/2-scissSize, height, scissSize*2, height - 100);
+	glEnable(GL_SCISSOR_TEST);
+	/*
+	glColor3f(0.1,0.1,0.1);
+	glBegin(GL_QUADS);
+	glVertex2i(0, 0);
+	glVertex2i(width, 0);
+	glVertex2i(width, height);
+	glVertex2i(0, height);
+	glEnd();
+	glColor3f(1,1,1);
+	*/
 
 	int arrowSize = 5;
 	int yPos = 70;
@@ -108,6 +122,9 @@ void HUD::DisplayYaw()
 		glPopMatrix();
 
 	}
+
+	glDisable(GL_SCISSOR_TEST);
+
 }
 
 void HUD::DisplayPitch()
@@ -115,6 +132,23 @@ void HUD::DisplayPitch()
 	glLoadIdentity();
 	float pixPerDeg = (((width) < (height)) ? (width) : (height))/Deg;
 	//pixPerDeg = (((width) > (height)) ? (width) : (height))/Deg;
+
+
+	int scissSize = pixPerDeg*20;
+	int scissSize2 = 100;
+	glScissor  (width/2-scissSize, scissSize2, scissSize*2, height - 100 - scissSize2);
+	glEnable(GL_SCISSOR_TEST);
+	/*
+	glColor3f(0.1,0.1,0.1);
+	glBegin(GL_QUADS);
+	glVertex2i(0, 0);
+	glVertex2i(width, 0);
+	glVertex2i(width, height);
+	glVertex2i(0, height);
+	glEnd();
+	glColor3f(1,1,1);
+	
+	*/
 
 	float r = 5.;
 
