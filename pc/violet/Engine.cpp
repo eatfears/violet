@@ -232,7 +232,6 @@ void Engine::DrawInterface()
 	//glPushMatrix();
 	//glPopMatrix();
 	//glLoadIdentity();
-	OpenGL2d();
 	
 	hud->Display(width, height, 50);
 
@@ -249,6 +248,7 @@ void Engine::Loop()
 
 	//player.Control(FrameInterval);
 	//inter.Read();
+	OpenGL2d();
 	cam.displayCam(width, height);
 	DrawInterface();
 

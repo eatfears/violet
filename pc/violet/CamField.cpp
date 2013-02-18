@@ -4,8 +4,8 @@
 
 CamField::CamField(void)
 {
-	g_Capture = cvCreateCameraCapture(CV_CAP_ANY);
-	assert(g_Capture);
+	//g_Capture = cvCreateCameraCapture(CV_CAP_ANY);
+	//assert(g_Capture);
 }
 
 CamField::~CamField(void)
@@ -14,10 +14,25 @@ CamField::~CamField(void)
 
 void CamField::displayCam(int width, int height)
 {
-	IplImage *image = cvQueryFrame(g_Capture);
+	//IplImage *image = cvQueryFrame(g_Capture);
 
-	cvCvtColor(image, image, CV_BGR2RGB);
-	gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, image->width, image->height, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
+	//cvCvtColor(image, image, CV_BGR2RGB);
+	//gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, image->width, image->height, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
+	glColor3f(0.2, 0.2, 0.2);
+	float camWidth = 800;
+	float camHeight = 600;
+
+	float camRatio = camWidth/camHeight;
+	float ratio = (float)width/(float)height;
+
+	float fieldWidth;
+	float fieldHeight;
+	float temp;
+	(camRatio > ratio)? temp = camWidth/(float)width : temp = camHeight/(float)height;
+
+	fieldHeight = camHeight/temp;
+	fieldWidth = camWidth/temp;
+
 
 	glEnable(GL_TEXTURE_2D);
 
@@ -26,20 +41,22 @@ void CamField::displayCam(int width, int height)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	glTranslated(width/2, height/2, 0);
+
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 1.0f); 
-	glVertex2f(0.0f, 0.0f);
+	glVertex2f(-fieldWidth/2, -fieldHeight/2);
 	glTexCoord2f(1.0f, 1.0f); 
-	glVertex2f(width, 0.0f);
+	glVertex2f(fieldWidth/2, -fieldHeight/2);
 	glTexCoord2f(1.0f, 0.0f); 
-	glVertex2f(width, height);
+	glVertex2f(fieldWidth/2, fieldHeight/2);
 	glTexCoord2f(0.0f, 0.0f); 
-	glVertex2f(0.0f, height);
+	glVertex2f(-fieldWidth/2, fieldHeight/2);
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 }
 
 void CamField::release()
 {
-	cvReleaseCapture(&g_Capture);
+	//cvReleaseCapture(&g_Capture);
 }
