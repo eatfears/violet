@@ -21,18 +21,21 @@ void CamField::displayCam(int width, int height)
 	glColor3f(0.2, 0.2, 0.2);
 	float camWidth = 800;
 	float camHeight = 600;
+	float camAngleOfView = 50;
 
-	float camRatio = camWidth/camHeight;
-	float ratio = (float)width/(float)height;
+	float camAspectRatio = camWidth/camHeight;
+	float windowAspectRatio = (float)width/(float)height;
 
 	float fieldWidth;
 	float fieldHeight;
 	float temp;
-	(camRatio > ratio)? temp = camWidth/(float)width : temp = camHeight/(float)height;
+	(camAspectRatio > windowAspectRatio)? temp = camWidth/(float)width : temp = camHeight/(float)height;
 
 	fieldHeight = camHeight/temp;
 	fieldWidth = camWidth/temp;
 
+	pixPerDeg = (((fieldWidth) < (fieldHeight)) ? (fieldWidth) : (fieldHeight))/camAngleOfView;
+	//pixPerDeg = (((fieldWidth) > (fieldHeight)) ? (fieldWidth) : (fieldHeight))/camAngleOfView;
 
 	glEnable(GL_TEXTURE_2D);
 

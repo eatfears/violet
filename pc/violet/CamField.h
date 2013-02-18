@@ -11,6 +11,7 @@ public:
 	~CamField(void);
 
 	CvCapture* g_Capture;
+	float pixPerDeg;
 
 	void release();
 	void displayCam(int width, int height);

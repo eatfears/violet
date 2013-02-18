@@ -19,7 +19,7 @@ void HUD::Display(int width, int height, float Deg)
 {
 	this->width = width;
 	this->height = height;
-	this->Deg = Deg;
+	this->pixPerDeg = Deg;
 
 	glColor3f(1.0, 1.0, 1.0);
 	glLineWidth (1.3);
@@ -40,7 +40,6 @@ void HUD::Display(int width, int height, float Deg)
 void HUD::DisplayYaw()
 {
 	glLoadIdentity();
-	float pixPerDeg = (((width) < (height)) ? (width) : (height))/Deg;
 
 	static char temp_text[16] = "";
 	//	350		0		010
@@ -132,9 +131,6 @@ void HUD::DisplayYaw()
 void HUD::DisplayPitch()
 {
 	glLoadIdentity();
-	float pixPerDeg = (((width) < (height)) ? (width) : (height))/Deg;
-	//pixPerDeg = (((width) > (height)) ? (width) : (height))/Deg;
-
 
 	int scissSize = pixPerDeg*20;
 	int scissSize2 = 100;
@@ -291,13 +287,8 @@ void HUD::_circle( float r, float s )
 void HUD::DisplayCompass()
 {
 	glLoadIdentity();
-	float pixPerDeg = (((width) < (height)) ? (width) : (height))/Deg;
 
 	static char temp_text[16] = "";
-	//	350		0		010
-	//	|		|		|
-	//	|	|	|	|	|
-	//			/\
 
 	int innerRad = 30;
 	int size = 5;

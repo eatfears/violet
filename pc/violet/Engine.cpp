@@ -229,17 +229,6 @@ void Engine::InitGame()
 
 void Engine::DrawInterface()
 {
-	//glPushMatrix();
-	//glPopMatrix();
-	//glLoadIdentity();
-	
-	hud->Display(width, height, 50);
-
-	glLoadIdentity();
-	//Statistics
-	stat.PrintStat();
-
-	glDisable(GL_BLEND);
 }
 
 void Engine::Loop()
@@ -250,7 +239,12 @@ void Engine::Loop()
 	//inter.Read();
 	OpenGL2d();
 	cam.displayCam(width, height);
-	DrawInterface();
+	hud->Display(width, height, cam.pixPerDeg);
+
+	glLoadIdentity();
+	stat.PrintStat();
+	glDisable(GL_BLEND);
+
 
 	GetFrameTime();
 

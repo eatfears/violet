@@ -17,7 +17,7 @@ private:
 
 	int width;
 	int height;
-	float Deg;
+	float pixPerDeg;
 	void _circle(float r, float s);
 	
 	Interface *inter;
