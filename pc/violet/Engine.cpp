@@ -20,6 +20,7 @@ Engine::Engine()
 	FrameInterval = 0.0;
 
 	hud = new HUD(&inter);
+	cam = new CamField;
 }
 
 Engine::~Engine()
@@ -137,8 +138,7 @@ void Engine::Display()
 //	glBindTexture(GL_TEXTURE_2D, tex[TERRAIN]);
 	//int render;
 
-	/*if(player.bKeyboard['Z'])
-	{
+	/*if(player.bKeyboard['Z']) {
 		player.bKeyboard['Z'] = 0;
 		wWorld.SoftLight = !wWorld.SoftLight;
 		wWorld.LightToRefresh = true;
@@ -161,10 +161,9 @@ void Engine::Keyboard(unsigned char button, int x, int y, bool KeyDown)
 	button = VkKeyScan(button);
 #endif
 
-	switch(button)
-	{
+	switch(button) {
 	case KEY_ESCAPE: 
-		cam.release();
+		delete cam;
 		glutExit();
 		break;
 
@@ -208,8 +207,7 @@ void Engine::MouseMotion(int x, int y)
 
 void Engine::MouseButton(int button, int state, int x, int y)
 {
-// 	switch(button)
-// 	{
+// 	switch(button) {
 // 	case GLUT_LEFT_BUTTON:
 // 		if (state==GLUT_DOWN) glutIdleFunc(spinDisplay); break;
 //
@@ -238,8 +236,8 @@ void Engine::Loop()
 	//player.Control(FrameInterval);
 	//inter.Read();
 	OpenGL2d();
-	cam.displayCam(width, height);
-	hud->Display(width, height, cam.pixPerDeg);
+	cam->Display(width, height);
+	hud->Display(width, height, cam->pixPerDeg);
 
 	glLoadIdentity();
 	stat.PrintStat();
@@ -265,8 +263,7 @@ void Engine::GetFrameTime()
 	//Интервал времени, прошедшего с прошлого кадра
 	FrameInterval = currentTime - frameTime;
 	sleep_time = (int) (1000.0/max_FPS - FrameInterval);
-	if(sleep_time > 0)
-	{
+	if(sleep_time > 0) {
 		Sleep(sleep_time);
 		currentTime = GetMillisecTime();
 		FrameInterval = currentTime - frameTime;
@@ -281,11 +278,9 @@ void Engine::GetFrameTime()
 
 void Engine::Special(int button, int x, int y, bool KeyDown)
 {
-	switch(button)
-	{
+	switch(button) {
 	case GLUT_KEY_F1:
-		if(KeyDown)
-		{
+		if(KeyDown) {
 			if(!fullscreen) glutFullScreenToggle();
 			else glutLeaveFullScreen();
 			fullscreen = !fullscreen;

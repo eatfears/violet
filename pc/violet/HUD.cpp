@@ -75,7 +75,6 @@ void HUD::DisplayYaw()
 	while(tempyaw < 0) tempyaw += 360;
 	b_sprintf(temp_text, "%3.3d", tempyaw);
 
-
 	glPushMatrix();
 	glTranslatef(0,-25,0);
 	glBegin(GL_LINE_LOOP);    //border
@@ -177,8 +176,7 @@ void HUD::DisplayPitch()
 
 	glPushMatrix();
 
-	for(int deg = -180; deg <= 180; deg += 5)
-	{
+	for(int deg = -180; deg <= 180; deg += 5) {
 		glPushMatrix();
 		if(deg >= -90 && deg <= 90) b_sprintf(temp_text, "%d", deg);
 		if(deg > 90) b_sprintf(temp_text, "%d", 180 - deg);
@@ -209,8 +207,7 @@ void HUD::DisplayPitch()
 
 	glBegin(GL_LINES);
 
-	for (int deg = -180; deg <= 180; deg += 5)
-	{
+	for (int deg = -180; deg <= 180; deg += 5) {
 		int h = deg*pixPerDeg;
 
 		if(deg == 0 || deg == 90 || deg == -90) {
@@ -300,8 +297,7 @@ void HUD::DisplayCompass()
 	//glTranslatef(-TODEG(inter->quadroYaw)*pixPerDeg,0,0);
 	//glRotatef(TODEG(inter->quadroRoll),0,0,1);
 
-	for(int deg = 0; deg < 360; deg += 10) 
-	{
+	for(int deg = 0; deg < 360; deg += 10) {
 		glBegin(GL_LINES);    
 		glVertex2i(0, innerRad);
 		glVertex2i(0, innerRad+size);

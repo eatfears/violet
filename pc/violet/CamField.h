@@ -14,6 +14,6 @@ public:
 	float pixPerDeg;
 
 	void release();
-	void displayCam(int width, int height);
+	void Display(int width, int height);
 };
 

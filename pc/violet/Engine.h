@@ -41,6 +41,6 @@ private:
 	friend class Statistics;
 	Interface inter;
 	Statistics stat;
-	CamField cam;
+	CamField *cam;
 	HUD *hud;
 };

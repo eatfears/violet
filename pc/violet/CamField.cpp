@@ -4,24 +4,36 @@
 
 CamField::CamField(void)
 {
-	//g_Capture = cvCreateCameraCapture(CV_CAP_ANY);
+	g_Capture = cvCreateCameraCapture(CV_CAP_ANY);
 	//assert(g_Capture);
 }
 
 CamField::~CamField(void)
 {
+	if(g_Capture) {
+		cvReleaseCapture(&g_Capture);
+	}
 }
 
-void CamField::displayCam(int width, int height)
+void CamField::Display(int width, int height)
 {
-	//IplImage *image = cvQueryFrame(g_Capture);
+	float camWidth;
+	float camHeight;
+	float camFovx = 50;
 
-	//cvCvtColor(image, image, CV_BGR2RGB);
-	//gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, image->width, image->height, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
-	glColor3f(0.2, 0.2, 0.2);
-	float camWidth = 800;
-	float camHeight = 600;
-	float camAngleOfView = 50;
+	if(g_Capture) {
+		IplImage *image = cvQueryFrame(g_Capture);
+
+		cvCvtColor(image, image, CV_BGR2RGB);
+		camWidth = image->width;
+		camHeight = image->height;
+		gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, image->width, image->height, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
+	}
+	else {
+		camWidth = 800;
+		camHeight = 600;
+		glColor3f(0.2, 0.2, 0.2);
+	}
 
 	float camAspectRatio = camWidth/camHeight;
 	float windowAspectRatio = (float)width/(float)height;
@@ -34,16 +46,14 @@ void CamField::displayCam(int width, int height)
 	fieldHeight = camHeight/temp;
 	fieldWidth = camWidth/temp;
 
-	pixPerDeg = (((fieldWidth) < (fieldHeight)) ? (fieldWidth) : (fieldHeight))/camAngleOfView;
-	//pixPerDeg = (((fieldWidth) > (fieldHeight)) ? (fieldWidth) : (fieldHeight))/camAngleOfView;
+	pixPerDeg = fieldHeight/camFovx;
+	//pixPerDeg = fieldWidth/camFovy;
 
 	glEnable(GL_TEXTURE_2D);
-
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
 	glTranslated(width/2, height/2, 0);
 
 	glBegin(GL_QUADS);
@@ -56,10 +66,6 @@ void CamField::displayCam(int width, int height)
 	glTexCoord2f(0.0f, 0.0f); 
 	glVertex2f(-fieldWidth/2, fieldHeight/2);
 	glEnd();
-	glDisable(GL_TEXTURE_2D);
-}
 
-void CamField::release()
-{
-	//cvReleaseCapture(&g_Capture);
+	glDisable(GL_TEXTURE_2D);
 }
