@@ -59,7 +59,7 @@ void CamField::_ComputePixPerDeg( float width, float height, bool display )
 	float fieldWidth, fieldHeight;
 	float temp;
 
-	(camAspectRatio > windowAspectRatio)? temp = (float)width/camWidth : temp = (float)height/camHeight;
+	(camAspectRatio > windowAspectRatio) ? temp = (float)width/camWidth : temp = (float)height/camHeight;
 
 	fieldWidth = camWidth*temp;
 	fieldHeight = camHeight*temp;
@@ -71,6 +71,7 @@ void CamField::_ComputePixPerDeg( float width, float height, bool display )
 		glRasterPos2i((width-fieldWidth)/2., (height+fieldHeight)/2.-1);
 		glPixelZoom(temp, -temp);
 		glDrawPixels(camWidth, camHeight, GL_RGB, GL_UNSIGNED_BYTE, _image->imageData);  
+		glPixelZoom(1, 1);
 #elif DISPLAY_METHOD == 2
 		if(ready) {
 			gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, camWidth, camHeight, GL_RGB, GL_UNSIGNED_BYTE, _image->imageData);
