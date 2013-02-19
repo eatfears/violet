@@ -16,6 +16,7 @@ public:
 
 	void release();
 	void Display(int width, int height);
+	void ComputePixPerDeg(float width, float height, bool display);
 
 private:
 	boost::thread _camThread;
