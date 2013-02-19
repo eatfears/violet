@@ -1,11 +1,14 @@
 #include "CamField.h"
 #include <GL/glut.h>
 
+void _StartCapture(CvCapture *capture, IplImage **image);
 
 CamField::CamField(void)
 {
 	g_Capture = cvCreateCameraCapture(CV_CAP_ANY);
 	//assert(g_Capture);
+
+	_camThread = boost::thread (_StartCapture, g_Capture, &image);
 }
 
 CamField::~CamField(void)
@@ -14,20 +17,25 @@ CamField::~CamField(void)
 		cvReleaseCapture(&g_Capture);
 	}
 }
+boost::mutex m;
+bool ready = 0;
 
 void CamField::Display(int width, int height)
 {
-	float camWidth;
-	float camHeight;
+	static float camWidth;
+	static float camHeight;
 	float camFovx = 50;
 
 	if(g_Capture) {
-		IplImage *image = cvQueryFrame(g_Capture);
+		if(ready) {
 
-		cvCvtColor(image, image, CV_BGR2RGB);
+		boost::unique_lock<boost::mutex> lk(m);
 		camWidth = image->width;
 		camHeight = image->height;
-		gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, image->width, image->height, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
+		gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, camWidth, camHeight, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
+		ready = 0;
+		lk.unlock();
+		}
 	}
 	else {
 		camWidth = 800;
@@ -69,3 +77,22 @@ void CamField::Display(int width, int height)
 
 	glDisable(GL_TEXTURE_2D);
 }
+
+void _StartCapture(CvCapture *capture, IplImage **image)
+{
+	try{
+		while(1) {
+			IplImage *tempImg = cvQueryFrame(capture);
+			cvCvtColor(tempImg, tempImg, CV_BGR2RGB);
+
+			boost::unique_lock<boost::mutex> lk(m);
+			*image = tempImg;
+			ready = 1;
+			lk.unlock();
+		}
+	}
+	catch (const std::runtime_error &e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+

@@ -2,6 +2,7 @@
 
 #include <opencv/cv.hpp>  // Gaussian Blur
 #include <opencv/highgui.h>  // OpenCV window I/O
+#include <boost/thread.hpp>
 
 
 class CamField
@@ -15,5 +16,9 @@ public:
 
 	void release();
 	void Display(int width, int height);
+
+private:
+	boost::thread _camThread;
+	IplImage *image;
 };
 
