@@ -4,22 +4,20 @@
 #include <opencv/highgui.h>  // OpenCV window I/O
 #include <boost/thread.hpp>
 
-
 class CamField
 {
 public:
 	CamField(void);
 	~CamField(void);
 
-	CvCapture* g_Capture;
 	float pixPerDeg;
 
-	void release();
 	void Display(int width, int height);
-	void ComputePixPerDeg(float width, float height, bool display);
 
 private:
 	boost::thread _camThread;
-	IplImage *image;
+	CvCapture* _gCapture;
+	IplImage *_image;
+	void _ComputePixPerDeg(float width, float height, bool display);
 };
 
