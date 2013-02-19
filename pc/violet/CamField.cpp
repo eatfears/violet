@@ -8,7 +8,9 @@ CamField::CamField(void)
 	g_Capture = cvCreateCameraCapture(CV_CAP_ANY);
 	//assert(g_Capture);
 
-	_camThread = boost::thread (_StartCapture, g_Capture, &image);
+	if(g_Capture) {
+		_camThread = boost::thread (_StartCapture, g_Capture, &image);
+	}
 }
 
 CamField::~CamField(void)
@@ -29,12 +31,12 @@ void CamField::Display(int width, int height)
 	if(g_Capture) {
 		if(ready) {
 
-		boost::unique_lock<boost::mutex> lk(m);
-		camWidth = image->width;
-		camHeight = image->height;
-		gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, camWidth, camHeight, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
-		ready = 0;
-		lk.unlock();
+			boost::unique_lock<boost::mutex> lk(m);
+			camWidth = image->width;
+			camHeight = image->height;
+			gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, camWidth, camHeight, GL_RGB, GL_UNSIGNED_BYTE, image->imageData);
+			ready = 0;
+			lk.unlock();
 		}
 	}
 	else {
@@ -80,9 +82,10 @@ void CamField::Display(int width, int height)
 
 void _StartCapture(CvCapture *capture, IplImage **image)
 {
+	IplImage *tempImg;
 	try{
 		while(1) {
-			IplImage *tempImg = cvQueryFrame(capture);
+			tempImg = cvQueryFrame(capture);
 			cvCvtColor(tempImg, tempImg, CV_BGR2RGB);
 
 			boost::unique_lock<boost::mutex> lk(m);
