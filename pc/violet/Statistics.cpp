@@ -24,6 +24,7 @@ void Statistics::ComputeFPS( double FrameInterval )
 
 void Statistics::PrintStat(void)
 {
+	glColor3f(1.0, 1.0, 1.0);
 	static char cFPS[20] = "";
 	static char pos[1024] = "";
 	static void *font = GLUT_BITMAP_HELVETICA_12;

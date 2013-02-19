@@ -17,7 +17,7 @@
 uint8_t sensors[8]={
   0,1,2,3,4,14,15,13};  // For Hardware v1 flat
 int SENSOR_SIGN[8]={
-  1,1,1,1,1,1,1,1}; //{1,-1,-1,-1,1,-1}
+  -1,-1,1,1,1,-1,1,1}; //{1,-1,-1,-1,1,-1}
 
 // ADC variables
 volatile uint8_t MuxSel=0;
@@ -122,3 +122,4 @@ void Take_Gyro_Offset()
     delay(20);
   }
 }
+

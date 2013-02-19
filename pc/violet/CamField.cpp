@@ -44,7 +44,7 @@ void CamField::Display(int width, int height)
 void CamField::_ComputePixPerDeg( float width, float height, bool display )
 {
 	float camWidth, camHeight;
-	float camFovx = 50.0;
+	float camFovx = 40.0;
 	
 	if(display && _image) {
 		camWidth = _image->width;

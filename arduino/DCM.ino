@@ -10,6 +10,9 @@ float Temporary_Matrix[3][3]={
 
 float errorRollPitch[3]={
   0,0,0};
+  
+float errorYaw[3]={
+  0,0,0};
 
 float Gyro_Vector[3]={
   0,0,0};//Store the gyros rutn rate in a vector
@@ -105,11 +108,11 @@ void Drift_correction(void)
   Vector_Add(Omega_I,Omega_I,Scaled_Omega_I);
 
   //*****YAW***************
-  /*
+  
   // We make the gyro YAW drift correction based on compass magnetic heading
-   mag_heading_x = cos(MAG_Heading);
-   mag_heading_y = sin(MAG_Heading);
-   errorCourse= (DCM_Matrix[0][0]*mag_heading_y) - (DCM_Matrix[1][0]*mag_heading_x);  //Calculating YAW error
+   float mag_heading_x = cos(MAG_Heading);
+   float mag_heading_y = sin(MAG_Heading);
+   errorCourse = (DCM_Matrix[0][0]*mag_heading_y) - (DCM_Matrix[1][0]*mag_heading_x);  //Calculating YAW error
    Vector_Scale(errorYaw,&DCM_Matrix[2][0],errorCourse); //Applys the yaw correction to the XYZ rotation of the aircraft, depeding the position.
    
    Vector_Scale(&Scaled_Omega_P[0],&errorYaw[0],Kp_YAW);
@@ -117,7 +120,7 @@ void Drift_correction(void)
    
    Vector_Scale(&Scaled_Omega_I[0],&errorYaw[0],Ki_YAW);
    Vector_Add(Omega_I,Omega_I,Scaled_Omega_I);//adding integrator to the Omega_I
-   */
+  /* */
 
 }
 
@@ -165,3 +168,10 @@ void Euler_angles(void)
   roll = atan2(DCM_Matrix[2][1],DCM_Matrix[2][2]);
   yaw = atan2(DCM_Matrix[1][0],DCM_Matrix[0][0]);
 }
+
+
+
+
+
+
+

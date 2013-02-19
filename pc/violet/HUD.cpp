@@ -21,7 +21,7 @@ void HUD::Display(int width, int height, float Deg)
 	this->height = height;
 	this->pixPerDeg = Deg;
 
-	glColor3f(1.0, 1.0, 1.0);
+	glColor3f(0.5, 0.9, 0.4);
 	glLineWidth (1.3);
 	//HUD
 	glEnable( GL_LINE_SMOOTH );
