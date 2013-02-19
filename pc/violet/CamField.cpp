@@ -77,6 +77,7 @@ void _StartCapture(CvCapture *capture, IplImage **image)
 			tempImage = cvQueryFrame(capture);
 			cvCvtColor(tempImage, tempImage, CV_BGR2RGB);
 			boost::unique_lock<boost::mutex> lk(m);
+			cvReleaseImage(image);
 			*image = cvCloneImage(tempImage);
 			lk.unlock();
 		}
