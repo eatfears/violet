@@ -91,7 +91,7 @@ void loop()
   {
     serial_timer = millis();
 
-    for (int i = 1; i <= 6; i++) {
+    for (int i = 0; i < 6; i++) {
       Serial.print(i);
       Serial.print(": ");
       Serial.print(RxGetChannelPulseWidth(i));

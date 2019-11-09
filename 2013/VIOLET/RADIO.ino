@@ -22,20 +22,20 @@ int PWM_OUT_PORT[NUM_ESC] = {
 
 int PWM_power_ready[NUM_ESC];
 int PWM_power_s[NUM_ESC];
-unsigned long RC_Old[NUM_RC_CHANNELS + 1] = {
-  0, 0, 0, 0, 0, 0, 0
+unsigned long RC_Old[NUM_RC_CHANNELS] = {
+  0, 0, 0, 0, 0, 0
 };
 int ESC_stage = 0;
-int RC_select = 1;
+int RC_select = 0;
 unsigned long RC_check_time;
 int RC_state = 0;
 
 
-unsigned long RC_Time[NUM_RC_CHANNELS + 1] = {
-  0, 0, 0, 0, 0, 0, 0
+unsigned long RC_Time[NUM_RC_CHANNELS] = {
+  0, 0, 0, 0, 0, 0
 };  //input value from RC
 //Read this to know the RC transmitter values
-// if 6 channels. 1-6. RC_Time[0] is not used
+
 
 void PWM_init()
 {
@@ -90,29 +90,38 @@ ISR(TIMER1_OVF_vect)
 
 void RC_read_init()
 {
-  if ( RC_IN_PORT[0] == 2)
-    attachInterrupt(0, RC_read_interrupt_1, CHANGE);
-
-  if ( RC_IN_PORT[1] == 3)
-    attachInterrupt(1, RC_read_interrupt_2, FALLING);
+  attachInterrupt(0, RC_read_interrupt_1, CHANGE); // pin 2
+  attachInterrupt(1, RC_read_interrupt_2, FALLING); // pin 3
 }
 
+int mem = micros();
+int t;
 void RC_read_interrupt_1()
 {
-  RC_Old[RC_select] = micros();
+  t = micros();
+//  Serial.print("1 ");
+//  Serial.println(t - mem);
 
-  RC_Time[RC_select - 1] = RC_Old[RC_select];
-  RC_Time[RC_select - 1] -= RC_Old[RC_select - 1];
-  RC_select ++ ;
-  if (RC_select > NUM_RC_CHANNELS) RC_select = 1;
+  RC_Time[RC_select] = t - mem;
+//
+//  RC_Time[RC_select] = RC_Old[(RC_select + 1)%NUM_RC_CHANNELS];
+//  RC_Time[RC_select] -= RC_Old[RC_select];
+  if (t-mem < 3000) RC_select++;
+  if (RC_select > NUM_RC_CHANNELS) RC_select = 0;
+//
+  mem = t;
 }
 
 void RC_read_interrupt_2()
 {
-  RC_Time[6] = micros();
-  RC_Time[6] -= RC_Old[6];
-  RC_select = 1;
+  t = micros();
+//  Serial.print("2 ");
+//  Serial.println(mem - t);
+  RC_Time[5] = t - mem;
+//  RC_Time[5] -= RC_Old[5];
+  RC_select = 0;
   RC_check_time = micros();
+  mem = t;
 }
 
 int RxGetChannelPulseWidth(int i)
