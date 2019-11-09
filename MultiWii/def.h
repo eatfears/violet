@@ -1648,7 +1648,7 @@
   #define ACC 0
 #endif
 
-#if defined(HMC5883) || defined(HMC5843) || defined(AK8975) || defined(MAG3110)
+#if defined(HMC5883) || defined(HMC5843) || defined(AK8975) || defined(MAG3110) || defined(HMC6352)
   #define MAG 1
 #else
   #define MAG 0

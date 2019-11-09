@@ -99,6 +99,8 @@ void loop()
     }
     Serial.print("RC: ");
     Serial.print(RC_state);
+    Serial.print(" MAG: ");
+    Serial.print(MAG_Heading);
     Serial.println("");
     //    Serial.println("hello");
     //    Serial.println(pitch);
