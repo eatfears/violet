@@ -357,6 +357,8 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
   /********                       special receiver types             ********************/
   /**************************************************************************************/
 
+#define CUSTOM_PWM
+
     /****************************    PPM Sum Reciver    ***********************************/
       /* The following lines apply only for specific receiver with only one PPM sum signal, on digital PIN 2
          Select the right line depending on your radio brand. Feel free to modify the order in your PPM order is different */

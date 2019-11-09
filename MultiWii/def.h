@@ -1835,6 +1835,8 @@
   #define RC_CHANS 18
 #elif defined(SPEKTRUM) || defined(SERIAL_SUM_PPM)
   #define RC_CHANS 12
+#elif defined(CUSTOM_PWM)
+  #define RC_CHANS 6
 #else
   #define RC_CHANS 8
 #endif
