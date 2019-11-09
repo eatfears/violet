@@ -1,18 +1,18 @@
 /*
-Channels:
- * 1 - ROLL
- * 2 - Tortle
- * 3 - PITCH
- * 4 - YAW
- * 5 - Engine start
- * 6 - Mode
- 
- Rotors:
- * 0 - Front
- * 1 - Back
- * 2 - Right
- * 3 - Left
- */
+  Channels:
+   1 - ROLL
+   2 - Tortle
+   3 - PITCH
+   4 - YAW
+   5 - Engine start
+   6 - Mode
+
+  Rotors:
+   0 - Front
+   1 - Back
+   2 - Right
+   3 - Left
+*/
 #include <inttypes.h>
 #include <math.h>
 #include <Wire.h>   // For magnetometer readings
@@ -22,23 +22,25 @@ Channels:
 
 float MAG_Heading = 0;
 
-float DCM_Matrix[3][3]={
-  1,0,0,0,1,0,0,0,1}; 
+float DCM_Matrix[3][3] = {
+  1, 0, 0, 0, 1, 0, 0, 0, 1
+};
 
-float Accel_Vector[3]={
-  0,0,0}; //Store the acceleration in a vector
+float Accel_Vector[3] = {
+  0, 0, 0
+}; //Store the acceleration in a vector
 
 float AN[8]; //array that store the 6 ADC filtered data
 float AN_OFFSET[8]; //Array that stores the Offset of the gyros
 
-float roll=0;
-float pitch=0;
-float yaw=0;
+float roll = 0;
+float pitch = 0;
+float yaw = 0;
 
-float G_Dt=0.02;    // Integration time for the gyros (DCM algorithm)
+float G_Dt = 0.02;  // Integration time for the gyros (DCM algorithm)
 
-unsigned int counter=0;
-long timer=0; //general porpuse timer 
+unsigned int counter = 0;
+long timer = 0; //general porpuse timer
 long timer_old;
 
 void setup()
@@ -58,49 +60,43 @@ void setup()
 
 void loop()
 {
-  if((millis()-timer)>=14)   // 14ms => 70 Hz loop rate 
+  if ((millis() - timer) >= 14) // 14ms => 70 Hz loop rate
   {
     counter++;
     timer_old = timer;
     timer = millis();
-    G_Dt = (timer-timer_old)/1000.0;      // Real time of loop run 
+    G_Dt = (timer - timer_old) / 1000.0;  // Real time of loop run
 
     Read_adc_raw();
 
     if (counter > 7)  // Read compass data at 10Hz... (7 loop runs)
     {
-      counter=0;
+      counter = 0;
       Read_Compass();    // Read I2C magnetometer
-      // Compass_Heading(); // Calculate magnetic heading  
-    } 
+      // Compass_Heading(); // Calculate magnetic heading
+    }
 
-    Matrix_update(); 
+    Matrix_update();
     Normalize();
     Drift_correction();
     Euler_angles();
+
+    RC_read_init();
   }
-  
-  
+
   static long serial_timer = millis();
-  if((millis()-serial_timer)>=50)   // 50ms => 20 Hz loop rate 
+  if ((millis() - serial_timer) >= 50) // 50ms => 20 Hz loop rate
   {
     serial_timer = millis();
-    
-    Serial.write("hello");
-    Serial.write((uint8_t*) &pitch, 4);
-    Serial.write((uint8_t*) &roll, 4);
-    Serial.write((uint8_t*) &yaw, 4);
-    Serial.write((uint8_t*) &MAG_Heading, 4);
-    
-    Serial.write((uint8_t*) &AN, 4*8);
-    Serial.write((uint8_t*) &AN_OFFSET, 4*8);
 
-    Serial.write((uint8_t*) &G_Dt, 4);
-
-    Serial.write((uint8_t*) &DCM_Matrix[0], 4*3);
-    Serial.write((uint8_t*) &DCM_Matrix[1], 4*3);
-    Serial.write((uint8_t*) &DCM_Matrix[2], 4*3);
-
-    Serial.write((uint8_t*) &Accel_Vector, 4*3);
+//    for (int i = 0; i <= 6; i++) {
+//      Serial.print(i);
+//      Serial.print(": ");
+//      Serial.println(RxGetChannelPulseWidth(i));
+//    }
+    //    Serial.println("hello");
+    //    Serial.println(pitch);
+    //    Serial.println(roll);
+    //    Serial.println(yaw);
   }
 }
