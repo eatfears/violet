@@ -28,7 +28,7 @@ unsigned long RC_Old[NUM_RC_CHANNELS + 1] = {
 int ESC_stage = 0;
 int RC_select = 1;
 unsigned long RC_check_time;
-int RC_state = 1;
+int RC_state = 0;
 
 
 unsigned long RC_Time[NUM_RC_CHANNELS + 1] = {
@@ -79,10 +79,10 @@ ISR(TIMER1_OVF_vect)
 
   //------------------------Cheking for RC signal---------------
   if ((RC_IN_PORT[0] >= 0) && (micros() > RC_check_time + PWM_PERIOD_4 * 5)) {
-    if (RC_state ) Serial.println("RC signal lost\n");
+    if (RC_state) Serial.println("RC signal lost\n");
     RC_state = 0;
   } else {
-    if (!RC_state ) Serial.println("RC signal locked\n");
+    if (!RC_state) Serial.println("RC signal locked\n");
     RC_state = 1;
   }
 }

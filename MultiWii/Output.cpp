@@ -39,7 +39,8 @@ void initializeServo();
   #endif
 #endif
 #if defined(MEGA)
-  uint8_t PWM_PIN[8] = {3,5,6,2,7,8,9,10};      //for a quad+: rear,right,left,front   //+ for y6: 7:under right  8:under left
+  // uint8_t PWM_PIN[8] = {3,5,6,2,7,8,9,10};      //for a quad+: rear,right,left,front   //+ for y6: 7:under right  8:under left
+  uint8_t PWM_PIN[8] = {49,43,47,45,7,8,9,10};
 #endif
 
 /**************************************************************************************/

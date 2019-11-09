@@ -56,8 +56,12 @@ void setup()
   Take_Gyro_Offset();
 
   Read_Compass();
+
+  RC_read_init();
+  PWM_init();
 }
 
+extern int RC_state;
 void loop()
 {
   if ((millis() - timer) >= 14) // 14ms => 70 Hz loop rate
@@ -80,8 +84,6 @@ void loop()
     Normalize();
     Drift_correction();
     Euler_angles();
-
-    RC_read_init();
   }
 
   static long serial_timer = millis();
@@ -89,11 +91,15 @@ void loop()
   {
     serial_timer = millis();
 
-//    for (int i = 0; i <= 6; i++) {
-//      Serial.print(i);
-//      Serial.print(": ");
-//      Serial.println(RxGetChannelPulseWidth(i));
-//    }
+    for (int i = 1; i <= 6; i++) {
+      Serial.print(i);
+      Serial.print(": ");
+      Serial.print(RxGetChannelPulseWidth(i));
+      Serial.print(" ");
+    }
+    Serial.print("RC: ");
+    Serial.print(RC_state);
+    Serial.println("");
     //    Serial.println("hello");
     //    Serial.println(pitch);
     //    Serial.println(roll);
