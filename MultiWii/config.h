@@ -190,7 +190,7 @@
       //#define HMC5883
       //#define AK8975
       //#define MAG3110
-//      #define HMC6352 // my
+      //#define HMC6352 // my compass
 
       /* Sonar */ // for visualization purpose currently - no control code behind
       //#define SRF02 // use the Devantech SRF i2c sensors
