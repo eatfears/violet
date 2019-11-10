@@ -20,7 +20,7 @@
   volatile uint16_t rcValue[RC_CHANS] = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}; // interval [1000;2000]
 #elif defined(SPEKTRUM) || defined(SERIAL_SUM_PPM)
   volatile uint16_t rcValue[RC_CHANS] = {1502, 1502, 1502, 1502, 1502, 1502, 1502, 1502, 1502, 1502, 1502, 1502}; // interval [1000;2000]
-#elif defined(CUSTOM_PWM)
+#elif defined(CUSTOM_RX_PWM)
   volatile uint16_t rcValue[RC_CHANS] = {1502, 1502, 1502, 1502, 1502, 1502}; // interval [1000;2000]
 #else
   volatile uint16_t rcValue[RC_CHANS] = {1502, 1502, 1502, 1502, 1502, 1502, 1502, 1502}; // interval [1000;2000]
@@ -35,7 +35,7 @@
   static uint8_t rcChannel[RC_CHANS] = {PITCH,YAW,THROTTLE,ROLL,AUX1,AUX2,AUX3,AUX4};
 #elif defined(SPEKTRUM)
   static uint8_t rcChannel[RC_CHANS] = {PITCH,YAW,THROTTLE,ROLL,AUX1,AUX2,AUX3,AUX4,8,9,10,11};
-#elif defined(CUSTOM_PWM)
+#elif defined(CUSTOM_RX_PWM)
   static uint8_t rcChannel[RC_CHANS]  = {THROTTLEPIN, ROLLPIN, AUX2PIN, PITCHPIN, AUX1PIN, YAWPIN};
 #else // Standard Channel order
   static uint8_t rcChannel[RC_CHANS]  = {ROLLPIN, PITCHPIN, YAWPIN, THROTTLEPIN, AUX1PIN,AUX2PIN,AUX3PIN,AUX4PIN};
@@ -44,50 +44,28 @@
 
 void rxInt(void);
 
-#if defined(CUSTOM_PWM)
+#if defined(CUSTOM_RX_PWM)
   int RC_select = 0;
-  unsigned long RC_check_time;
-  int RC_state = 0;
-  static uint8_t RC_Old[RC_CHANS] = {0, 0, 0, 0, 0, 0};
+  int Old_time = micros();
+  int Cur_time;
   
-//  void RC_read_interrupt_1()
-//  {
-//    RC_Old[RC_select] = micros();
-//  
-//    rcValue[RC_select - 1] = RC_Old[RC_select];
-//    rcValue[RC_select - 1] -= RC_Old[RC_select - 1];
-//    RC_select++;
-//    if (RC_select > RC_CHANS) RC_select = 0;
-//  }
-//  
-//  void RC_read_interrupt_2()
-//  {
-//    rcValue[5] = micros();
-//    rcValue[5] -= RC_Old[5];
-//    RC_select = 0;
-//    RC_check_time = micros();
-//  }
-  int mem = micros();
-  int t;
   void RC_read_interrupt_1()
   {
-    t = micros();
-    
-    if (t-mem < 3000) {
-      rcValue[RC_select] = t - mem;
+    Cur_time = micros();
+    if (Cur_time - Old_time < 3000) {
+      rcValue[RC_select] = Cur_time - Old_time;
       RC_select++;
     }
     if (RC_select > RC_CHANS) RC_select = 1;
-    mem = t;
+    Old_time = Cur_time;
   }
   
   void RC_read_interrupt_2()
   {
-    t = micros();
-    rcValue[5] = t - mem;
+    Cur_time = micros();
+    rcValue[5] = Cur_time - Old_time;
     RC_select = 0;
-    RC_check_time = micros();
-    mem = t;
+    Old_time = Cur_time;
   }
 #endif
 
@@ -132,7 +110,7 @@ void configureReceiver() {
         DDRB &= ~(1 << 0); // set D17 to input 
       #endif
       // Aux2 pin on PD2 (RX0)
-    #if defined(RCAUX2PINRXO)
+      #if defined(RCAUX2PINRXO)
         DDRD &= ~(1 << 2); // RX to input
         PORTD |= (1 << 2); // enable pullups
         EICRA |= (1 << ISC20);
@@ -142,8 +120,8 @@ void configureReceiver() {
     
   /*************************   Special RX Setup   ********************************/
   #endif
-  #if defined(CUSTOM_PWM)
-    attachInterrupt(0, RC_read_interrupt_1, CHANGE); // pin 2
+  #if defined(CUSTOM_RX_PWM)
+    attachInterrupt(0, RC_read_interrupt_1, CHANGE);  // pin 2
     attachInterrupt(1, RC_read_interrupt_2, FALLING); // pin 3
   #endif
   #if defined(SERIAL_SUM_PPM)

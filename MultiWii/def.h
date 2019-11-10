@@ -1793,7 +1793,7 @@
 
 //all new Special RX's must be added here
 //this is to avoid confusion :)
-#if !defined(SERIAL_SUM_PPM) && !defined(SPEKTRUM) && !defined(SBUS) && !defined(SUMD) && !defined(CUSTOM_PWM)
+#if !defined(SERIAL_SUM_PPM) && !defined(SPEKTRUM) && !defined(SBUS) && !defined(SUMD) && !defined(CUSTOM_RX_PWM)
   #define STANDARD_RX
 #endif
 
@@ -1835,7 +1835,7 @@
   #define RC_CHANS 18
 #elif defined(SPEKTRUM) || defined(SERIAL_SUM_PPM)
   #define RC_CHANS 12
-#elif defined(CUSTOM_PWM)
+#elif defined(CUSTOM_RX_PWM)
   #define RC_CHANS 6
 #else
   #define RC_CHANS 8

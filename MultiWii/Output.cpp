@@ -39,7 +39,7 @@ void initializeServo();
   #endif
 #endif
 #if defined(MEGA)
-  #if defined(CUSTOM_PWM)
+  #if defined(CUSTOM_RX_PWM)
     uint8_t PWM_PIN[8] = {7,5,6,8,2,3,9,10}; // I switched 2 7 3 and 8 pins
   #else
     uint8_t PWM_PIN[8] = {3,5,6,2,7,8,9,10};      //for a quad+: rear,right,left,front   //+ for y6: 7:under right  8:under left
@@ -233,13 +233,13 @@ void writeMotors() { // [1000;2000] => [125;250]
   #if defined(MEGA)// [1000:2000] => [8000:16000] for timer 3 & 4 for mega
     #if (NUMBER_MOTOR > 0) 
       #ifndef EXT_MOTOR_RANGE 
-        #if defined(CUSTOM_PWM)
+        #if defined(CUSTOM_RX_PWM)
           OCR4B = motor[0]<<3; //  pin 7
         #else
           OCR3C = motor[0]<<3; //  pin 3
         #endif
       #else
-        #if defined(CUSTOM_PWM)
+        #if defined(CUSTOM_RX_PWM)
           OCR4B = ((motor[0]<<4) - 16000);
         #else
           OCR3C = ((motor[0]<<4) - 16000);
@@ -262,13 +262,13 @@ void writeMotors() { // [1000;2000] => [125;250]
     #endif
     #if (NUMBER_MOTOR > 3)
       #ifndef EXT_MOTOR_RANGE 
-        #if defined(CUSTOM_PWM)
+        #if defined(CUSTOM_RX_PWM)
           OCR4C = motor[3]<<3; //  pin 8
         #else
           OCR3B = motor[3]<<3; //  pin 2
         #endif
       #else
-        #if defined(CUSTOM_PWM)
+        #if defined(CUSTOM_RX_PWM)
           OCR4C = ((motor[3]<<4) - 16000);
         #else
           OCR3B = ((motor[3]<<4) - 16000);
