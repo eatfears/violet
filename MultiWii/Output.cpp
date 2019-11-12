@@ -40,7 +40,7 @@ void initializeServo();
 #endif
 #if defined(MEGA)
   #if defined(CUSTOM_RX_PWM)
-    uint8_t PWM_PIN[8] = {7,5,6,8,2,3,9,10}; // I switched 2 7 3 and 8 pins
+    uint8_t PWM_PIN[8] = {8,5,7,6,2,3,9,10}; // I switched 2 7 3 and 8 pins
   #else
     uint8_t PWM_PIN[8] = {3,5,6,2,7,8,9,10};      //for a quad+: rear,right,left,front   //+ for y6: 7:under right  8:under left
   #endif
@@ -234,7 +234,7 @@ void writeMotors() { // [1000;2000] => [125;250]
     #if (NUMBER_MOTOR > 0) 
       #ifndef EXT_MOTOR_RANGE 
         #if defined(CUSTOM_RX_PWM)
-          OCR4B = motor[0]<<3; //  pin 7
+          OCR4B = motor[2]<<3; //  pin 7
         #else
           OCR3C = motor[0]<<3; //  pin 3
         #endif
@@ -254,8 +254,12 @@ void writeMotors() { // [1000;2000] => [125;250]
       #endif
     #endif
     #if (NUMBER_MOTOR > 2)
-      #ifndef EXT_MOTOR_RANGE 
-        OCR4A = motor[2]<<3; //  pin 6
+      #ifndef EXT_MOTOR_RANGE
+        #if defined(CUSTOM_RX_PWM)
+          OCR4A = motor[3]<<3;
+        #else
+          OCR4A = motor[2]<<3; //  pin 6
+        #endif
       #else
         OCR4A = ((motor[2]<<4) - 16000);
       #endif
@@ -263,7 +267,7 @@ void writeMotors() { // [1000;2000] => [125;250]
     #if (NUMBER_MOTOR > 3)
       #ifndef EXT_MOTOR_RANGE 
         #if defined(CUSTOM_RX_PWM)
-          OCR4C = motor[3]<<3; //  pin 8
+          OCR4C = motor[0]<<3; //  pin 8
         #else
           OCR3B = motor[3]<<3; //  pin 2
         #endif
@@ -532,8 +536,12 @@ void initOutput() {
       TCCR3B |= (1<<WGM33);
       TCCR3B &= ~(1<<CS31); // no prescaler
       ICR3   |= 0x3FFF; // TOP to 16383;      
-      
-      TCCR3A |= _BV(COM3C1); // connect pin 3 to timer 3 channel C
+
+      #if defined(CUSTOM_RX_PWM)
+        TCCR4A |= _BV(COM4B1); // connect pin 7 to timer 4 channel B
+      #else
+        TCCR3A |= _BV(COM3C1); // connect pin 3 to timer 3 channel C
+      #endif
     #endif
     #if (NUMBER_MOTOR > 1)
       TCCR3A |= _BV(COM3A1); // connect pin 5 to timer 3 channel A
@@ -549,7 +557,11 @@ void initOutput() {
       TCCR4A |= _BV(COM4A1); // connect pin 6 to timer 4 channel A
     #endif
     #if (NUMBER_MOTOR > 3)
-      TCCR3A |= _BV(COM3B1); // connect pin 2 to timer 3 channel B
+      #if defined(CUSTOM_RX_PWM)
+        TCCR4A |= _BV(COM4C1); // connect pin 8 to timer 4 channel C
+      #else
+        TCCR3A |= _BV(COM3B1); // connect pin 2 to timer 3 channel B
+      #endif
     #endif
     #if (NUMBER_MOTOR > 4)
       TCCR4A |= _BV(COM4B1); // connect pin 7 to timer 4 channel B
