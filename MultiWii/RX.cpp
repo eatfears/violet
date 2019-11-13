@@ -66,6 +66,10 @@ void rxInt(void);
     rcValue[5] = Cur_time - Old_time;
     RC_select = 0;
     Old_time = Cur_time;
+
+    #if defined(FAILSAFE)
+      failsafeCnt = 0;
+    #endif
   }
 #endif
 
