@@ -164,10 +164,17 @@
       #if defined(VEEBEE)
         #define QUADX
         #define CUSTOM_RX_PWM
-        #define GY_521
-        
+        //#define GY_521
         #define FORCE_ACC_ORIENTATION(X, Y, Z)  {imu.accADC[ROLL]  =  Y; imu.accADC[PITCH]  =  X; imu.accADC[YAW]  = -Z;}
         #define FORCE_GYRO_ORIENTATION(X, Y, Z) {imu.gyroADC[ROLL] = -X; imu.gyroADC[PITCH] =  Y; imu.gyroADC[YAW] = Z;}
+
+//        #define GY_85
+        #define ITG3200
+        #define ADXL345
+//        #define HMC5883
+        #undef INTERNAL_I2C_PULLUPS
+        #define ADXL345_ADDRESS 0x53
+        
       #endif
     /***************************    independent sensors    ********************************/
       /* leave it commented if you already checked a specific board above */
